@@ -1,4 +1,6 @@
-<?php namespace Refinery29\Test\Util\PHPUnit;
+<?php
+
+namespace Refinery29\Test\Util\PHPUnit;
 
 /**
  * Trait BuildsMocks
