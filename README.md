@@ -16,7 +16,8 @@ $ composer require refinery29/test-util
 
 ## Usage
 
-If you need fake data in your tests, the `GeneratorTrait` comes in very handy:
+If you need fake data in your tests, the `GeneratorTrait` comes in very handy, as it
+yields an instance of `Faker\Generator` (see [`fzaninotto/faker`](https://github.com/fzaninotto/Faker)):
 
 ```php
 namespace Foo\Bar\Test;
