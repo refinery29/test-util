@@ -14,6 +14,39 @@ Run:
 $ composer require refinery29/test-util
 ```
 
+## Usage
+
+If you need fake data in your tests, the `GeneratorTrait` comes in very handy:
+
+```php
+namespace Foo\Bar\Test;
+
+use Foo\Bar\Baz;
+use Refinery29\Test\Util\Faker\GeneratorTrait;
+
+class BazTest extends \PHPUnit_Framework_TestCase
+{
+    use GeneratorTrait;
+
+    public function testConstructorSetsName()
+    {
+        $faker = $this->getFaker();
+
+        $name = $faker->name;
+        $date = $faker->dateTime;
+
+        $baz = new Baz(
+            $name,
+            $date
+        );
+
+        $this->assertSame($name, $baz->name());
+        $this->assertNotSame($dateTime, $baz->date());
+        $this->assertEquals($dateTime, $baz->date());
+    }
+}
+```
+
 ## Contributing
 
 Please have a look at [CONTRIBUTING.md](CONTRIBUTING.md).
