@@ -50,9 +50,9 @@ class BazTest extends \PHPUnit_Framework_TestCase
 }
 ```
 
-### PHPUnit BuilsMockTrait
+### PHPUnit BuildsMockTrait
 
-If you need to easily build mocks in your tests, the `BuilsMockTrait` can be used to generate a mock, given a class name.
+If you need to easily build mocks in your tests, the `BuildsMockTrait` can be used to generate a mock, given a class name.
 (see [`phpunit/phpunit`](https://github.com/sebastianbergmann/phpunit)):
 
 ```php
