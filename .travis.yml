@@ -10,6 +10,7 @@ env:
 matrix:
   fast_finish: true
   include:
+    - php: 5.4
     - php: 5.5
     - php: 5.6
       env: CHECK_CS=true COLLECT_COVERAGE=true
