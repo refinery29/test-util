@@ -2,6 +2,11 @@
     "name": "refinery29/test-util",
     "description": "Provides helpers for testing.",
     "type": "library",
+    "keywords": [
+        "test",
+        "util",
+        "faker"
+    ],
     "license": "MIT",
     "authors": [
         {
