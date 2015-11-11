@@ -16,6 +16,8 @@ $ composer require refinery29/test-util
 
 ## Usage
 
+### Faker GeneratorTrait
+
 If you need fake data in your tests, the `GeneratorTrait` comes in very handy, as it
 yields an instance of `Faker\Generator` (see [`fzaninotto/faker`](https://github.com/fzaninotto/Faker)):
 
@@ -44,6 +46,32 @@ class BazTest extends \PHPUnit_Framework_TestCase
         $this->assertSame($name, $baz->name());
         $this->assertNotSame($dateTime, $baz->date());
         $this->assertEquals($dateTime, $baz->date());
+    }
+}
+```
+
+### PHPUnit BuilsMockTrait
+
+If you need to easily build mocks in your tests, the `BuilsMockTrait` can be used to generate a mock, given a class name.
+(see [`phpunit/phpunit`](https://github.com/sebastianbergmann/phpunit)):
+
+```php
+namespace Foo\Bar\Test;
+
+use Foo\Bar\Baz;
+use Refinery29\Test\Util\PHPUnit\BuildsMockTrait;
+
+class BazTest extends \PHPUnit_Framework_TestCase
+{
+    use BuildsMockTrait;
+
+    public function testNeedsMock()
+    {
+        $mockForce = $this->getMock('Jedi\Force);
+        
+        $baz = new Luke($mockForce);
+
+        $this->assertTrue($luke->hasTheForce());
     }
 }
 ```
