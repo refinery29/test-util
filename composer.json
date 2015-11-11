@@ -25,7 +25,8 @@
         "refinery29/php-cs-fixer-config": "0.2.2"
     },
     "suggest": {
-        "fzaninotto/faker": "If you want to make use of the Faker\\GeneratorTrait"
+        "fzaninotto/faker": "If you want to make use of the Faker\\GeneratorTrait",
+        "phpunit/phpunit": "If you want to make use of the PHPUnit\\BuildsMocksTrait"
     },
     "autoload": {
         "psr-4": {
