@@ -58,7 +58,7 @@ If you need to easily build mocks in your tests, the `BuilsMockTrait` can be use
 ```php
 namespace Foo\Bar\Test;
 
-use Foo\Bar\Baz;
+use Jedi;
 use Refinery29\Test\Util\PHPUnit\BuildsMockTrait;
 
 class BazTest extends \PHPUnit_Framework_TestCase
@@ -67,9 +67,9 @@ class BazTest extends \PHPUnit_Framework_TestCase
 
     public function testNeedsMock()
     {
-        $mockForce = $this->getMock('Jedi\Force);
+        $mockForce = $this->getMock('Jedi\Force');
         
-        $baz = new Luke($mockForce);
+        $baz = new Jedi\Luke($mockForce);
 
         $this->assertTrue($luke->hasTheForce());
     }
