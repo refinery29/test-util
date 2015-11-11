@@ -12,6 +12,14 @@
         {
             "name": "Andreas Möller",
             "email": "andreas.moller@refinery29.com"
+        },
+        {
+          "name": "Kayla Daniels",
+          "email": "kayla.daniels@refinery29.com"
+        },
+        {
+          "name": "R29 Product & Engineering",
+          "email": "p.e@refinery29.com"
         }
     ],
     "require": {
