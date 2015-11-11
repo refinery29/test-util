@@ -2,13 +2,10 @@
 
 namespace Refinery29\Test\Util\PHPUnit;
 
-/**
- * Trait BuildsMocks
- */
 trait BuildsMockTrait
 {
     /**
-     * @param $className
+     * @param string $className
      *
      * @return \PHPUnit_Framework_MockObject_MockObject
      */
