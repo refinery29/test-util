@@ -4,6 +4,7 @@ namespace Refinery29\Test\Util\Faker;
 
 use Faker\Factory;
 use Faker\Generator;
+use Refinery29\Test\Util\Faker\Provider\Color;
 
 trait GeneratorTrait
 {
@@ -16,6 +17,7 @@ trait GeneratorTrait
 
         if ($faker === null) {
             $faker = Factory::create('en_US');
+            $faker->addProvider(new Color());
             $faker->seed(9000);
         }
 
