@@ -51,10 +51,14 @@ class GeneratorTraitTest extends \PHPUnit_Framework_TestCase
     {
         $reflectionClass = new ReflectionClass('Refinery29\Test\Util\Faker\Provider\Color');
 
+        $data = [];
+
         foreach ($reflectionClass->getMethods() as $method) {
-            yield [
+            $data[] = [
                 $method->getName(),
             ];
         }
+
+        return $data;
     }
 }
