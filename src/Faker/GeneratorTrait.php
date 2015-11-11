@@ -3,7 +3,6 @@
 namespace Refinery29\Test\Util\Faker;
 
 use Faker\Factory;
-use Faker\Generator;
 use Refinery29\Test\Util\Faker\Provider\Color;
 
 trait GeneratorTrait
