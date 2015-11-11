@@ -1,0 +1,45 @@
+language: php
+
+sudo: false
+
+env:
+  global:
+    - secure: "T6cm1dwBf/d4vwlpXtXq7FXl4WNYO1FKSCXaEEnQbM0MDLEirN8G+fgltTTmJk4L28KjzRmU6RxsoWXekAZQ2f8CuWhxEYosJFTenwcIt7Z9n7ahqrByD5s/EwIPBeQHWcMqjtTN9yoDyiX7FtHU9YPgOgvhP8U4oT9hh0cKnPmTiGhtixQAWx/xdJmjNKFnUI0NT7Z/XxsPjbzW3fwsrt/WOkYMGI/Bl3u+iiRCwT+6f4J9R97ZEWN5SDrB/7T02WW/Hjr76OdRUd7/2ekiC+bFjGDOxVY+vA4u6P8wvfX1XolpyQ59nO1I1h0uiAc4A7uh3ZCmj0jy/HjHEhf58KvCH23KLi4HXcXC/BZcNf5Q5/YZ3gdtc/0/zhg3NXxIDZoNqq9+Ge1RTVstO4BRV0SU36q8khEFXk9dPFB+QLzD4HRZPTm6AsCbLPbJ8+IyVP/JR/NnAgJIOZss9FXooIJm/c+/EVl9CbnTgM/NaY4wi7/QsbN6o3uQUVYLJ/Vdh9vtm7kqFfrl8ugGYsdeWM7/cMSlSKVsOvUS7hExoa+ObQDXl63NNbtXnGFkgrBwVoujBrbEmHJEjfiTFclVyErkZ8m6enf7duBfjZIKyYBmjE3s1F1XMDGjharJRXThKV9knVZAmR1VuVldnfwA552/oC1YjJPmnxK/fYvxRgo="
+    - secure: "HcWRPoPCTJNQCAo+asQrPWifsJmT318mWyfU1/nsSPKpOK7gthZlKWji2Tjjd03bJDEk7NRvxVb/B05yIWNT8ai6nogfu8nAO4HVFnpMH890XF4U0lqNPcEqfh22IgjjGT2tEhUpUygpUQ69uhhgJzMx7ImRCJpYfGbLFhpxob3OzFyIt5fQ25K9bqw0hDxn2vpdMuYUYXhcOyeHWbQomv+/V15weyCVmbiZVkl+wyYnFXEWdq2uoZnM/aE6I7MgderWmgxI3Nu6oYruwSH4bLqDV07lvy33sVK6tTD+TWyu+IqQ28DEEdWrd0kuQhuNcA5Tjx0xUaIHBTg61nOkxTSaZToy79aMlPhZFu+BLgJIWsP3pREylPE/W5e+DHsWpBVaCtbjot1pAP3rc8zFXM/Zn7PlI19a+z5SFkig2Jqg7FT7dSfqT+U9VSxhZFBjiroj0en3bFzoFmkq1SbLw7sOjHjyj4/fbFYZEQR7f2JcLXOy0CaB3QYtpjk+WMXLk5ETtseBm9zUQ2+H8DAxJVE4zBfgdj92PMoWkXnleDOwgg7IJsZk1+Gx+Xg3L9Zvj4bLrOB7kTmxliwCVjFFqVqaAPOm2IPMZ4Uxs18U+UE4l8SNcXTFZxVNGa1SAXGwVALBy0NSjCemQ4fkSd23FCP4nLrvqiM5OyzW7Il79+w="
+
+matrix:
+  fast_finish: true
+  include:
+    - php: 5.5
+    - php: 5.6
+      env: CHECK_CS=true COLLECT_COVERAGE=true
+    - php: 7
+    - php: hhvm
+
+cache:
+  directories:
+    - $HOME/.composer/cache
+    - $HOME/.php-cs-fixer
+
+before_install:
+  - composer self-update
+  - composer validate
+  - composer config github-oauth.github.com $GITHUB_TOKEN
+
+install:
+  - composer install --prefer-dist
+
+before_script:
+  - mkdir -p "$HOME/.php-cs-fixer"
+  - mkdir -p build/logs
+  - if [[ "$TRAVIS_PULL_REQUEST" == "false" && "$TRAVIS_BRANCH" == "master" ]]; then IS_MERGE_TO_MASTER=true; else IS_MERGE_TO_MASTER=false; fi
+
+script:
+  - if [[ "$COLLECT_COVERAGE" == "true" && "$IS_MERGE_TO_MASTER" == "true" ]]; then vendor/bin/phpunit --configuration phpunit.xml --coverage-php build/logs/unit.cov; else vendor/bin/phpunit --configuration phpunit.xml; fi
+  - if [[ "$CHECK_CS" == "true" ]]; then vendor/bin/php-cs-fixer fix --config-file=.php_cs --diff --verbose --dry-run; fi
+
+after_success:
+  - if [[ "$COLLECT_COVERAGE" == "true" && "$IS_MERGE_TO_MASTER" == "true" ]]; then vendor/bin/test-reporter --coverage-report build/clover.xml; fi
+
+notifications:
+  email: false

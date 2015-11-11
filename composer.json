@@ -1,0 +1,31 @@
+{
+    "name": "refinery29/test-util",
+    "description": "Provides helpers for testing.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Andreas Möller",
+            "email": "andreas.moller@refinery29.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.5"
+    },
+    "require-dev": {
+        "codeclimate/php-test-reporter": "0.2.0",
+        "fabpot/php-cs-fixer": "2.0.*-dev",
+        "phpunit/phpunit": "^4.8.18",
+        "refinery29/php-cs-fixer-config": "0.2.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Refinery29\\Test\\Util\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Refinery29\\Test\\Util\\Test\\": "test"
+        }
+    }
+}
