@@ -69,7 +69,7 @@ class BazTest extends \PHPUnit_Framework_TestCase
     {
         $mockForce = $this->getMock('Jedi\Force');
         
-        $baz = new Jedi\Luke($mockForce);
+        $luke = new Jedi\Luke($mockForce);
 
         $this->assertTrue($luke->hasTheForce());
     }
