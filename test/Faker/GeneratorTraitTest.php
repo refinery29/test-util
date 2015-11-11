@@ -1,6 +1,6 @@
 <?php
 
-namespace Refinery29\Test\Unit;
+namespace Refinery29\Test\Util\Test\Faker;
 
 use Faker\Generator;
 use Refinery29\Test\Util\Faker\GeneratorTrait;
