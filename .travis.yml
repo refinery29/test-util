@@ -35,11 +35,11 @@ before_script:
   - if [[ "$TRAVIS_PULL_REQUEST" == "false" && "$TRAVIS_BRANCH" == "master" ]]; then IS_MERGE_TO_MASTER=true; else IS_MERGE_TO_MASTER=false; fi
 
 script:
-  - if [[ "$COLLECT_COVERAGE" == "true" && "$IS_MERGE_TO_MASTER" == "true" ]]; then vendor/bin/phpunit --configuration phpunit.xml --coverage-php build/logs/unit.cov; else vendor/bin/phpunit --configuration phpunit.xml; fi
+  - if [[ "$COLLECT_COVERAGE" == "true" && "$IS_MERGE_TO_MASTER" == "true" ]]; then vendor/bin/phpunit --configuration phpunit.xml --coverage-clover build/logs/clover.xml; else vendor/bin/phpunit --configuration phpunit.xml; fi
   - if [[ "$CHECK_CS" == "true" ]]; then vendor/bin/php-cs-fixer fix --config-file=.php_cs --diff --verbose --dry-run; fi
 
 after_success:
-  - if [[ "$COLLECT_COVERAGE" == "true" && "$IS_MERGE_TO_MASTER" == "true" ]]; then vendor/bin/test-reporter --coverage-report build/clover.xml; fi
+  - if [[ "$COLLECT_COVERAGE" == "true" && "$IS_MERGE_TO_MASTER" == "true" ]]; then vendor/bin/test-reporter --coverage-report build/logs/clover.xml; fi
 
 notifications:
   email: false
