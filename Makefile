@@ -6,7 +6,7 @@ coverage: composer
 	vendor/bin/phpunit --configuration phpunit.xml --coverage-text --columns max
 
 cs: composer
-	vendor/bin/php-cs-fixer fix --config-file=.php_cs --verbose --diff
+	vendor/bin/php-cs-fixer fix --config=.php_cs --verbose --diff
 
 it: cs test
 
