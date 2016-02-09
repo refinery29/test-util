@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "211b423f971f1a95a672b0c0b00c4cce",
-    "content-hash": "d46c6d312869c1ae95a53c86563d4237",
+    "hash": "6647911a51be885829aa1d518571ef08",
+    "content-hash": "c29025088dfb8153ae17dcc5ad54856f",
     "packages": [],
     "packages-dev": [
         {
@@ -130,7 +130,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfPHP/PHP-CS-Fixer/zipball/9fab551f0b821ef067dfb02d7a619cb4ace2da80",
+                "url": "https://api.github.com/repos/FriendsOfPHP/PHP-CS-Fixer/zipball/a674d597cf248dbfad467a2609f6a5cd2ff65e44",
                 "reference": "9fab551f0b821ef067dfb02d7a619cb4ace2da80",
                 "shasum": ""
             },
@@ -1720,7 +1720,7 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=5.4"
+        "php": ">=5.5"
     },
     "platform-dev": []
 }
