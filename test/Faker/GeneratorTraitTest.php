@@ -23,6 +23,13 @@ class GeneratorTraitTest extends \PHPUnit_Framework_TestCase
         $this->assertInstanceOf('Faker\Generator', $faker);
     }
 
+    public function testCanGetFakerStatically()
+    {
+        $faker = self::getFaker();
+
+        $this->assertInstanceOf('Faker\Generator', $faker);
+    }
+
     public function testGetFakerReturnsTheSameInstance()
     {
         $faker = $this->getFaker();

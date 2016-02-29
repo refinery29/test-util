@@ -17,7 +17,7 @@ trait GeneratorTrait
     /**
      * @return Generator
      */
-    protected function getFaker()
+    protected static function getFaker()
     {
         static $faker;
 
