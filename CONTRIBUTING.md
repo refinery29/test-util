@@ -18,7 +18,7 @@ Run
 $ make test
 ```
 
-to run all of the test suites.
+to run all the tests.
 
 ### Coding Standards
 
@@ -31,3 +31,13 @@ $ make cs
 ```
 
 to automatically fix coding standard violations.
+
+## Extra lazy?
+
+Run
+
+```
+$ make
+```
+
+to run both coding standards check and tests!
