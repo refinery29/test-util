@@ -27,9 +27,9 @@ class InvalidString implements DataProviderInterface
         $values = [
             null,
             $faker->boolean(),
-            $faker->words,
-            $faker->randomNumber(),
             $faker->randomFloat(),
+            $faker->randomNumber(),
+            $faker->words,
             new stdClass(),
         ];
 
