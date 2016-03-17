@@ -80,6 +80,10 @@ class BazTest extends \PHPUnit_Framework_TestCase
 
 Please have a look at [CONTRIBUTING.md](.github/CONTRIBUTING.md).
 
+## Code of Conduct
+
+Please have a look at [CONDUCT.md](.github/CONDUCT.md).
+
 ## License
 
 This package is licensed using the MIT License.
