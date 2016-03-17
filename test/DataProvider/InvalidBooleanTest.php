@@ -9,6 +9,8 @@
 
 namespace Refinery29\Test\Util\Test\DataProvider;
 
+use Assert\Assertion;
+use InvalidArgumentException;
 use Refinery29\Test\Util\DataProvider\DataProviderInterface;
 use Refinery29\Test\Util\DataProvider\InvalidBoolean;
 
@@ -26,8 +28,10 @@ class InvalidBooleanTest extends \PHPUnit_Framework_TestCase
      *
      * @param mixed $value
      */
-    public function testIsNotAString($value)
+    public function testIsNotABoolean($value)
     {
-        $this->assertFalse(is_bool($value));
+        $this->setExpectedException(InvalidArgumentException::class);
+
+        Assertion::boolean($value);
     }
 }
