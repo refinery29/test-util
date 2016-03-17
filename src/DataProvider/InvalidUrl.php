@@ -9,22 +9,15 @@
 
 namespace Refinery29\Test\Util\DataProvider;
 
-use Generator;
-use Refinery29\Test\Util\Faker\GeneratorTrait;
 use stdClass;
 
-class InvalidUrl implements DataProviderInterface
+class InvalidUrl extends AbstractDataProvider
 {
-    use GeneratorTrait;
-
-    /**
-     * @return array|Generator
-     */
-    public function data()
+    protected function values()
     {
         $faker = $this->getFaker();
 
-        $values = [
+        return [
             null,
             $faker->boolean(),
             $faker->word,
@@ -33,11 +26,5 @@ class InvalidUrl implements DataProviderInterface
             $faker->randomFloat(),
             new stdClass(),
         ];
-
-        foreach ($values as $value) {
-            yield [
-                $value,
-            ];
-        }
     }
 }

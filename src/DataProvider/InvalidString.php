@@ -10,21 +10,18 @@
 namespace Refinery29\Test\Util\DataProvider;
 
 use Generator;
-use Refinery29\Test\Util\Faker\GeneratorTrait;
 use stdClass;
 
-class InvalidString implements DataProviderInterface
+class InvalidString extends AbstractDataProvider
 {
-    use GeneratorTrait;
-
     /**
      * @return array|Generator
      */
-    public function data()
+    protected function values()
     {
         $faker = $this->getFaker();
 
-        $values = [
+        return [
             null,
             $faker->boolean(),
             $faker->randomFloat(),
@@ -32,11 +29,5 @@ class InvalidString implements DataProviderInterface
             $faker->words,
             new stdClass(),
         ];
-
-        foreach ($values as $value) {
-            yield [
-                $value,
-            ];
-        }
     }
 }
