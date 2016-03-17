@@ -78,7 +78,7 @@ class BazTest extends \PHPUnit_Framework_TestCase
 
 ## Contributing
 
-Please have a look at [CONTRIBUTING.md](CONTRIBUTING.md).
+Please have a look at [CONTRIBUTING.md](.github/CONTRIBUTING.md).
 
 ## License
 
