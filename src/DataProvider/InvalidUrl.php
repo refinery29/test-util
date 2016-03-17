@@ -9,22 +9,15 @@
 
 namespace Refinery29\Test\Util\DataProvider;
 
-use stdClass;
-
-class InvalidUrl extends AbstractDataProvider
+class InvalidUrl extends InvalidString
 {
     protected function values()
     {
         $faker = $this->getFaker();
 
-        return [
-            null,
-            $faker->boolean(),
+        return array_merge(parent::values(), [
             $faker->word,
-            $faker->words,
-            $faker->randomNumber(),
-            $faker->randomFloat(),
-            new stdClass(),
-        ];
+            implode('/', $faker->words),
+        ]);
     }
 }
