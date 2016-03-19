@@ -9,13 +9,8 @@
 
 namespace Refinery29\Test\Util\DataProvider;
 
-use Generator;
-
 class InvalidUuid extends InvalidString
 {
-    /**
-     * @return array|Generator
-     */
     public function values()
     {
         $faker = $this->getFaker();
