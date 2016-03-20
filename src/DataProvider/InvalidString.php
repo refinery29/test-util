@@ -9,14 +9,10 @@
 
 namespace Refinery29\Test\Util\DataProvider;
 
-use Generator;
 use stdClass;
 
 class InvalidString extends AbstractDataProvider
 {
-    /**
-     * @return array|Generator
-     */
     protected function values()
     {
         $faker = $this->getFaker();
