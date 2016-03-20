@@ -16,6 +16,38 @@ $ composer require refinery29/test-util
 
 ## Usage
 
+### Data Provider
+
+If you need to assert that invalid values are rejected, you can use one 
+of the data providers:
+
+* `Refinery29\Test\Util\DataProvider\InvalidBoolean`
+* `Refinery29\Test\Util\DataProvider\InvalidInteger`
+* `Refinery29\Test\Util\DataProvider\InvalidString`
+* `Refinery29\Test\Util\DataProvider\InvalidUuid`
+* `Refinery29\Test\Util\DataProvider\InvalidUrl`
+
+```php
+namespace Foo\Bar\Test;
+
+use Foo\Bar\Baz;
+
+class BazTest extends \PHPUnit_Framework_TestCase
+{
+    /**
+     * @dataProvider Refinery29\Test\Util\DataProvider\InvalidString::data()
+     * 
+     * @param mixed $name
+     */
+    public function testConstructorRejectsInvalidValue($name)
+    {
+        $this->expectException(InvalidArgumentException::class);
+        
+        new Baz($name);
+    }
+}
+```
+
 ### Faker GeneratorTrait
 
 If you need fake data in your tests, the `GeneratorTrait` comes in very handy, as it
