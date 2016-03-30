@@ -14,6 +14,7 @@ use Refinery29\Test\Util\Faker\GeneratorTrait;
 abstract class AbstractDataProvider implements DataProviderInterface
 {
     use GeneratorTrait;
+    use DataProviderTrait;
 
     /**
      * @return array
@@ -22,10 +23,6 @@ abstract class AbstractDataProvider implements DataProviderInterface
 
     public function data()
     {
-        foreach ($this->values() as $value) {
-            yield [
-                $value,
-            ];
-        }
+        return $this->provideData($this->values());
     }
 }
