@@ -9,12 +9,15 @@
 
 namespace Refinery29\Test\Util\DataProvider;
 
-use Generator;
+use Traversable;
 
 interface DataProviderInterface
 {
     /**
-     * @return array|Generator
+     * This method should return an array or a Traversable, iterating over which should return an array of arguments to
+     * pass to a test method that makes use of the concrete data provider.
+     *
+     * @return array|Traversable
      */
     public function data();
 }
