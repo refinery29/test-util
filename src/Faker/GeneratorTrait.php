@@ -10,23 +10,32 @@
 namespace Refinery29\Test\Util\Faker;
 
 use Faker\Factory;
+use InvalidArgumentException;
 use Refinery29\Test\Util\Faker\Provider\Color;
 
 trait GeneratorTrait
 {
     /**
+     * @param string $locale
+     *
      * @return Generator
      */
-    protected static function getFaker()
+    protected static function getFaker($locale = 'en_US')
     {
-        static $faker;
+        static $fakers = [];
 
-        if ($faker === null) {
-            $faker = Factory::create('en_US');
-            $faker->addProvider(new Color());
-            $faker->seed(9000);
+        if (!is_string($locale)) {
+            throw new InvalidArgumentException('Locale should be a string');
         }
 
-        return $faker;
+        if (!array_key_exists($locale, $fakers)) {
+            $faker = Factory::create($locale);
+            $faker->addProvider(new Color());
+            $faker->seed(9000);
+
+            $fakers[$locale] = $faker;
+        }
+
+        return $fakers[$locale];
     }
 }
