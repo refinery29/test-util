@@ -9,8 +9,6 @@
 
 namespace Refinery29\Test\Util\Test\DataProvider;
 
-use Assert\Assertion;
-use InvalidArgumentException;
 use Refinery29\Test\Util\DataProvider\DataProviderInterface;
 use Refinery29\Test\Util\DataProvider\InvalidInteger;
 
@@ -30,8 +28,6 @@ class InvalidIntegerTest extends \PHPUnit_Framework_TestCase
      */
     public function testIsNotAnInteger($value)
     {
-        $this->setExpectedException(InvalidArgumentException::class);
-
-        Assertion::integer($value);
+        $this->assertFalse(is_int($value));
     }
 }

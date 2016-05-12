@@ -9,8 +9,6 @@
 
 namespace Refinery29\Test\Util\Test\DataProvider;
 
-use Assert\Assertion;
-use InvalidArgumentException;
 use Refinery29\Test\Util\DataProvider\DataProviderInterface;
 use Refinery29\Test\Util\DataProvider\InvalidString;
 
@@ -30,8 +28,6 @@ class InvalidStringTest extends \PHPUnit_Framework_TestCase
      */
     public function testIsNotAString($value)
     {
-        $this->setExpectedException(InvalidArgumentException::class);
-
-        Assertion::string($value);
+        $this->assertFalse(is_string($value));
     }
 }

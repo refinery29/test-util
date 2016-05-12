@@ -9,8 +9,6 @@
 
 namespace Refinery29\Test\Util\Test\DataProvider;
 
-use Assert\Assertion;
-use InvalidArgumentException;
 use Refinery29\Test\Util\DataProvider\DataProviderInterface;
 use Refinery29\Test\Util\DataProvider\InvalidFloat;
 
@@ -30,8 +28,6 @@ class InvalidFloatTest extends \PHPUnit_Framework_TestCase
      */
     public function testIsNotAFloat($value)
     {
-        $this->setExpectedException(InvalidArgumentException::class);
-
-        Assertion::float($value);
+        $this->assertFalse(is_float($value));
     }
 }
