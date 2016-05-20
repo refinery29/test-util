@@ -32,7 +32,7 @@
         "beberlei/assert": "^2.5.0",
         "codeclimate/php-test-reporter": "0.2.0",
         "phpunit/phpunit": "^4.8.18 || ^5.2.3",
-        "refinery29/php-cs-fixer-config": "0.4.11"
+        "refinery29/php-cs-fixer-config": "0.4.12"
     },
     "suggest": {
         "phpunit/phpunit": "If you want to make use of the PHPUnit\\BuildsMocksTrait"
