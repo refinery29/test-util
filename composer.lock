@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "5159b2a18ee9c4ee7fd3daa897c25b95",
-    "content-hash": "fab823d649cb920191f24801311653aa",
+    "hash": "042a764935d4b212dc2fd225f143d926",
+    "content-hash": "a7a52db6374e098db3e64d207519f5c0",
     "packages": [
         {
             "name": "fzaninotto/faker",
@@ -228,12 +228,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfPHP/PHP-CS-Fixer.git",
-                "reference": "8c4c64397651aab0fa2f2a61f2d70a44d801f881"
+                "reference": "62898ea27f0f79633f3f9cead77d392088940226"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfPHP/PHP-CS-Fixer/zipball/8c4c64397651aab0fa2f2a61f2d70a44d801f881",
-                "reference": "8c4c64397651aab0fa2f2a61f2d70a44d801f881",
+                "url": "https://api.github.com/repos/FriendsOfPHP/PHP-CS-Fixer/zipball/62898ea27f0f79633f3f9cead77d392088940226",
+                "reference": "62898ea27f0f79633f3f9cead77d392088940226",
                 "shasum": ""
             },
             "require": {
@@ -242,7 +242,7 @@
                 "sebastian/diff": "^1.1",
                 "symfony/console": "^2.3 || ^3.0",
                 "symfony/event-dispatcher": "^2.1 || ^3.0",
-                "symfony/filesystem": "^2.1 || ^3.0",
+                "symfony/filesystem": "^2.7 || ^3.0",
                 "symfony/finder": "^2.2 || ^3.0",
                 "symfony/polyfill-php54": "^1.0",
                 "symfony/process": "^2.3 || ^3.0",
@@ -280,7 +280,7 @@
                 }
             ],
             "description": "A tool to automatically fix PHP code style",
-            "time": "2016-04-28 21:56:27"
+            "time": "2016-05-19 19:19:42"
         },
         {
             "name": "guzzle/guzzle",
@@ -894,20 +894,20 @@
         },
         {
             "name": "refinery29/php-cs-fixer-config",
-            "version": "0.4.11",
+            "version": "0.4.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/refinery29/php-cs-fixer-config.git",
-                "reference": "d634c100cb075143bf790edca35c89cf66335cc6"
+                "reference": "152ec9103f2daab68c34ac80e3d05a581546827e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/refinery29/php-cs-fixer-config/zipball/d634c100cb075143bf790edca35c89cf66335cc6",
-                "reference": "d634c100cb075143bf790edca35c89cf66335cc6",
+                "url": "https://api.github.com/repos/refinery29/php-cs-fixer-config/zipball/152ec9103f2daab68c34ac80e3d05a581546827e",
+                "reference": "152ec9103f2daab68c34ac80e3d05a581546827e",
                 "shasum": ""
             },
             "require": {
-                "fabpot/php-cs-fixer": "dev-master#8548d19",
+                "fabpot/php-cs-fixer": "dev-master#62898ea",
                 "php": "^5.5 || ^7.0"
             },
             "require-dev": {
@@ -931,7 +931,7 @@
                 }
             ],
             "description": "Provides a configuration for fabpot/php-cs-fixer, used within Refinery29.",
-            "time": "2016-04-19 12:49:54"
+            "time": "2016-05-20 06:30:12"
         },
         {
             "name": "satooshi/php-coveralls",
