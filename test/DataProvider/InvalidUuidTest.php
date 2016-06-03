@@ -30,7 +30,7 @@ class InvalidUuidTest extends \PHPUnit_Framework_TestCase
      */
     public function testIsNotAUuid($value)
     {
-        $this->setExpectedException(InvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
 
         Assertion::string($value);
         Assertion::uuid($value);

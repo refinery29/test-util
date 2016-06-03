@@ -37,7 +37,7 @@ class GeneratorTraitTest extends \PHPUnit_Framework_TestCase
      */
     public function testGetFakerRejectsInvalidLocale($locale)
     {
-        $this->setExpectedException(
+        $this->expectException(
             'InvalidArgumentException',
             'Locale should be a string'
         );

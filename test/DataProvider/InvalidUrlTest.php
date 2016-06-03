@@ -30,7 +30,7 @@ class InvalidUrlTest extends \PHPUnit_Framework_TestCase
      */
     public function testIsNotAUrl($value)
     {
-        $this->setExpectedException(InvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
 
         Assertion::url($value);
     }
