@@ -21,14 +21,14 @@ class GeneratorTraitTest extends \PHPUnit_Framework_TestCase
     {
         $faker = $this->getFaker();
 
-        $this->assertInstanceOf('Faker\Generator', $faker);
+        $this->assertInstanceOf(Generator::class, $faker);
     }
 
     public function testCanGetFakerStatically()
     {
         $faker = self::getFaker();
 
-        $this->assertInstanceOf('Faker\Generator', $faker);
+        $this->assertInstanceOf(Generator::class, $faker);
     }
 
     /**
@@ -48,7 +48,7 @@ class GeneratorTraitTest extends \PHPUnit_Framework_TestCase
     {
         $faker = $this->getFaker('en_US');
 
-        $this->assertInstanceOf('Faker\Generator', $faker);
+        $this->assertInstanceOf(Generator::class, $faker);
         $this->assertSame($faker, $this->getFaker());
     }
 
