@@ -4,7 +4,7 @@
 [![Code Climate](https://codeclimate.com/github/refinery29/test-util/badges/gpa.svg)](https://codeclimate.com/github/refinery29/test-util)
 [![Test Coverage](https://codeclimate.com/github/refinery29/test-util/badges/coverage.svg)](https://codeclimate.com/github/refinery29/test-util/coverage)
 
-Provides test helpers.
+Provides test helpers and generic data providers.
 
 ## Installation
 
@@ -21,11 +21,15 @@ $ composer require refinery29/test-util
 If you need to assert that invalid values are rejected, you can use one 
 of the data providers:
 
+* `Refinery29\Test\Util\DataProvider\BlankString`
 * `Refinery29\Test\Util\DataProvider\InvalidBoolean`
+* `Refinery29\Test\Util\DataProvider\InvalidFloat`
 * `Refinery29\Test\Util\DataProvider\InvalidInteger`
+* `Refinery29\Test\Util\DataProvider\InvalidNumeric`
+* `Refinery29\Test\Util\DataProvider\InvalidScalar`
 * `Refinery29\Test\Util\DataProvider\InvalidString`
-* `Refinery29\Test\Util\DataProvider\InvalidUuid`
 * `Refinery29\Test\Util\DataProvider\InvalidUrl`
+* `Refinery29\Test\Util\DataProvider\InvalidUuid`
 
 ```php
 namespace Foo\Bar\Test;
@@ -84,11 +88,11 @@ class BazTest extends \PHPUnit_Framework_TestCase
 
 ## Contributing
 
-Please have a look at [CONTRIBUTING.md](.github/CONTRIBUTING.md).
+Please have a look at [`CONTRIBUTING.md`](.github/CONTRIBUTING.md).
 
 ## Code of Conduct
 
-Please have a look at [CONDUCT.md](.github/CONDUCT.md).
+Please have a look at [`CONDUCT.md`](.github/CONDUCT.md).
 
 ## License
 
