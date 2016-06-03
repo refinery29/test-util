@@ -9,14 +9,16 @@
 
 namespace Refinery29\Test\Util\Test\Faker;
 
+use Faker\Generator as OriginalGenerator;
+use Refinery29\Test\Util\Faker\Generator;
 use ReflectionClass;
 
 class GeneratorTest extends \PHPUnit_Framework_TestCase
 {
     public function testExtendsBase()
     {
-        $reflectionClass = new ReflectionClass('Refinery29\Test\Util\Faker\Generator');
+        $reflectionClass = new ReflectionClass(Generator::class);
 
-        $this->assertTrue($reflectionClass->isSubclassOf('Faker\Generator'));
+        $this->assertTrue($reflectionClass->isSubclassOf(OriginalGenerator::class));
     }
 }

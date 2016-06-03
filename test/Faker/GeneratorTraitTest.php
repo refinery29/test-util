@@ -9,7 +9,9 @@
 
 namespace Refinery29\Test\Util\Test\Faker;
 
+use Faker\Generator;
 use Refinery29\Test\Util\Faker\GeneratorTrait;
+use Refinery29\Test\Util\Faker\Provider;
 use ReflectionClass;
 
 class GeneratorTraitTest extends \PHPUnit_Framework_TestCase
@@ -37,7 +39,7 @@ class GeneratorTraitTest extends \PHPUnit_Framework_TestCase
      */
     public function testGetFakerRejectsInvalidLocale($locale)
     {
-        $this->expectException('InvalidArgumentException');
+        $this->expectException(\InvalidArgumentException::class);
         $this->expectExceptionMessage('Locale should be a string');
 
         $this->getFaker($locale);
@@ -55,7 +57,7 @@ class GeneratorTraitTest extends \PHPUnit_Framework_TestCase
     {
         $faker = $this->getFaker('en_US');
 
-        $this->assertInstanceOf('Faker\Generator', $faker);
+        $this->assertInstanceOf(Generator::class, $faker);
         $this->assertNotSame($faker, $this->getFaker('de_DE'));
     }
 
@@ -68,7 +70,7 @@ class GeneratorTraitTest extends \PHPUnit_Framework_TestCase
     {
         $faker = $this->getFaker($locale);
 
-        $this->assertInstanceOf('Faker\Generator', $faker);
+        $this->assertInstanceOf(Generator::class, $faker);
         $this->assertSame($faker, $this->getFaker($locale));
     }
 
@@ -108,7 +110,7 @@ class GeneratorTraitTest extends \PHPUnit_Framework_TestCase
         $callable = $method->invoke($faker, $formatter);
 
         $this->assertInternalType('array', $callable);
-        $this->assertInstanceOf('Refinery29\Test\Util\Faker\Provider\Color', $callable[0]);
+        $this->assertInstanceOf(Provider\Color::class, $callable[0]);
         $this->assertSame($formatter, $callable[1]);
     }
 
@@ -117,7 +119,7 @@ class GeneratorTraitTest extends \PHPUnit_Framework_TestCase
      */
     public function providerHasColorProviderAttached()
     {
-        $reflectionClass = new ReflectionClass('Refinery29\Test\Util\Faker\Provider\Color');
+        $reflectionClass = new ReflectionClass(Provider\Color::class);
 
         $data = [];
 
