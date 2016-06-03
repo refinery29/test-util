@@ -17,8 +17,8 @@ class GeneratorTest extends \PHPUnit_Framework_TestCase
 {
     public function testExtendsBase()
     {
-        $reflectionClass = new ReflectionClass(Generator::class);
+        $reflection = new ReflectionClass(Generator::class);
 
-        $this->assertTrue($reflectionClass->isSubclassOf(OriginalGenerator::class));
+        $this->assertTrue($reflection->isSubclassOf(OriginalGenerator::class));
     }
 }
