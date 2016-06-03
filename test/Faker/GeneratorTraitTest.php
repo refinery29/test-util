@@ -119,11 +119,11 @@ class GeneratorTraitTest extends \PHPUnit_Framework_TestCase
      */
     public function providerHasColorProviderAttached()
     {
-        $reflectionClass = new ReflectionClass(Provider\Color::class);
+        $reflection = new ReflectionClass(Provider\Color::class);
 
         $data = [];
 
-        foreach ($reflectionClass->getMethods() as $method) {
+        foreach ($reflection->getMethods() as $method) {
             $data[] = [
                 $method->getName(),
             ];
