@@ -9,8 +9,6 @@
 
 namespace Refinery29\Test\Util\DataProvider;
 
-use stdClass;
-
 class InvalidBoolean extends AbstractDataProvider
 {
     protected function values()
@@ -23,7 +21,7 @@ class InvalidBoolean extends AbstractDataProvider
             $faker->randomNumber(),
             $faker->word,
             $faker->words,
-            new stdClass(),
+            new \stdClass(),
         ];
     }
 }

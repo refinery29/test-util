@@ -9,8 +9,6 @@
 
 namespace Refinery29\Test\Util\DataProvider;
 
-use stdClass;
-
 class InvalidString extends AbstractDataProvider
 {
     protected function values()
@@ -23,7 +21,7 @@ class InvalidString extends AbstractDataProvider
             $faker->randomFloat(),
             $faker->randomNumber(),
             $faker->words,
-            new stdClass(),
+            new \stdClass(),
         ];
     }
 }

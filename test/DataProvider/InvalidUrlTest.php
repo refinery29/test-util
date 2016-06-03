@@ -10,7 +10,6 @@
 namespace Refinery29\Test\Util\Test\DataProvider;
 
 use Assert\Assertion;
-use InvalidArgumentException;
 use Refinery29\Test\Util\DataProvider\DataProviderInterface;
 use Refinery29\Test\Util\DataProvider\InvalidUrl;
 
@@ -30,7 +29,7 @@ class InvalidUrlTest extends \PHPUnit_Framework_TestCase
      */
     public function testIsNotAUrl($value)
     {
-        $this->expectException(InvalidArgumentException::class);
+        $this->expectException(\InvalidArgumentException::class);
 
         Assertion::url($value);
     }

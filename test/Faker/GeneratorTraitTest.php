@@ -12,7 +12,6 @@ namespace Refinery29\Test\Util\Test\Faker;
 use Faker\Generator;
 use Refinery29\Test\Util\Faker\GeneratorTrait;
 use Refinery29\Test\Util\Faker\Provider;
-use ReflectionClass;
 
 class GeneratorTraitTest extends \PHPUnit_Framework_TestCase
 {
@@ -102,7 +101,7 @@ class GeneratorTraitTest extends \PHPUnit_Framework_TestCase
     {
         $faker = $this->getFaker();
 
-        $reflection = new ReflectionClass($faker);
+        $reflection = new \ReflectionClass($faker);
 
         $method = $reflection->getMethod('getFormatter');
         $method->setAccessible(true);
@@ -119,7 +118,7 @@ class GeneratorTraitTest extends \PHPUnit_Framework_TestCase
      */
     public function providerHasColorProviderAttached()
     {
-        $reflection = new ReflectionClass(Provider\Color::class);
+        $reflection = new \ReflectionClass(Provider\Color::class);
 
         $data = [];
 
