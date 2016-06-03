@@ -34,9 +34,6 @@
         "phpunit/phpunit": "^5.4.2",
         "refinery29/php-cs-fixer-config": "0.4.16"
     },
-    "suggest": {
-        "phpunit/phpunit": "If you want to make use of the PHPUnit\\BuildsMocksTrait"
-    },
     "autoload": {
         "psr-4": {
             "Refinery29\\Test\\Util\\": "src"
