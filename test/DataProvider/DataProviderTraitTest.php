@@ -11,7 +11,6 @@ namespace Refinery29\Test\Util\Test\DataProvider;
 
 use Refinery29\Test\Util\DataProvider\DataProviderTrait;
 use Refinery29\Test\Util\Faker\GeneratorTrait;
-use Traversable;
 
 class DataProviderTraitTest extends \PHPUnit_Framework_TestCase
 {
@@ -24,7 +23,7 @@ class DataProviderTraitTest extends \PHPUnit_Framework_TestCase
 
         $data = $this->provideData($values);
 
-        $this->assertInstanceOf(Traversable::class, $data);
+        $this->assertInstanceOf(\Traversable::class, $data);
 
         $expected = array_map(function ($value) {
             return [

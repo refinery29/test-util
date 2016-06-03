@@ -9,14 +9,12 @@
 
 namespace Refinery29\Test\Util\DataProvider;
 
-use Generator;
-
 trait DataProviderTrait
 {
     /**
      * @param array $values
      *
-     * @return Generator
+     * @return \Generator
      */
     public function provideData(array $values)
     {

@@ -9,8 +9,6 @@
 
 namespace Refinery29\Test\Util\DataProvider;
 
-use stdClass;
-
 class InvalidScalar extends AbstractDataProvider
 {
     protected function values()
@@ -20,7 +18,7 @@ class InvalidScalar extends AbstractDataProvider
         return [
             null,
             $faker->words,
-            new stdClass(),
+            new \stdClass(),
         ];
     }
 }

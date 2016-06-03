@@ -9,8 +9,6 @@
 
 namespace Refinery29\Test\Util\DataProvider;
 
-use stdClass;
-
 class InvalidInteger extends AbstractDataProvider
 {
     protected function values()
@@ -24,7 +22,7 @@ class InvalidInteger extends AbstractDataProvider
             (string) $faker->randomNumber(),
             $faker->word,
             $faker->words,
-            new stdClass(),
+            new \stdClass(),
         ];
     }
 }

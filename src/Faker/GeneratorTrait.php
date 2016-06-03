@@ -10,7 +10,6 @@
 namespace Refinery29\Test\Util\Faker;
 
 use Faker\Factory;
-use InvalidArgumentException;
 use Refinery29\Test\Util\Faker\Provider\Color;
 
 trait GeneratorTrait
@@ -25,7 +24,7 @@ trait GeneratorTrait
         static $fakers = [];
 
         if (!is_string($locale)) {
-            throw new InvalidArgumentException('Locale should be a string');
+            throw new \InvalidArgumentException('Locale should be a string');
         }
 
         if (!array_key_exists($locale, $fakers)) {
