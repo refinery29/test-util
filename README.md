@@ -82,32 +82,6 @@ class BazTest extends \PHPUnit_Framework_TestCase
 }
 ```
 
-### PHPUnit BuildsMockTrait
-
-If you need to easily build mocks in your tests, the `BuildsMockTrait` can be used to generate a mock, given a class name.
-(see [`phpunit/phpunit`](https://github.com/sebastianbergmann/phpunit)):
-
-```php
-namespace Foo\Bar\Test;
-
-use Jedi;
-use Refinery29\Test\Util\PHPUnit\BuildsMockTrait;
-
-class BazTest extends \PHPUnit_Framework_TestCase
-{
-    use BuildsMockTrait;
-
-    public function testNeedsMock()
-    {
-        $mockForce = $this->getMock('Jedi\Force');
-        
-        $luke = new Jedi\Luke($mockForce);
-
-        $this->assertTrue($luke->hasTheForce());
-    }
-}
-```
-
 ## Contributing
 
 Please have a look at [CONTRIBUTING.md](.github/CONTRIBUTING.md).
