@@ -9,16 +9,13 @@
 
 namespace Refinery29\Test\Util\Test\DataProvider;
 
-use Refinery29\Test\Util\DataProvider\DataProviderInterface;
 use Refinery29\Test\Util\DataProvider\InvalidNumeric;
 
-class InvalidNumericTest extends \PHPUnit_Framework_TestCase
+class InvalidNumericTest extends AbstractDataProviderTestCase
 {
-    public function testImplementsDataProviderInterface()
+    protected function className()
     {
-        $dataProvider = new InvalidNumeric();
-
-        $this->assertInstanceOf(DataProviderInterface::class, $dataProvider);
+        return InvalidNumeric::class;
     }
 
     /**

@@ -9,16 +9,13 @@
 
 namespace Refinery29\Test\Util\Test\DataProvider;
 
-use Refinery29\Test\Util\DataProvider\DataProviderInterface;
 use Refinery29\Test\Util\DataProvider\InvalidFloat;
 
-class InvalidFloatTest extends \PHPUnit_Framework_TestCase
+class InvalidFloatTest extends AbstractDataProviderTestCase
 {
-    public function testImplementsDataProviderInterface()
+    protected function className()
     {
-        $dataProvider = new InvalidFloat();
-
-        $this->assertInstanceOf(DataProviderInterface::class, $dataProvider);
+        return InvalidFloat::class;
     }
 
     /**

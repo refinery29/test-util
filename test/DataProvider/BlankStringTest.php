@@ -10,15 +10,12 @@
 namespace Refinery29\Test\Util\Test\DataProvider;
 
 use Refinery29\Test\Util\DataProvider\BlankString;
-use Refinery29\Test\Util\DataProvider\DataProviderInterface;
 
-class BlankStringTest extends \PHPUnit_Framework_TestCase
+class BlankStringTest extends AbstractDataProviderTestCase
 {
-    public function testImplementsDataProviderInterface()
+    protected function className()
     {
-        $dataProvider = new BlankString();
-
-        $this->assertInstanceOf(DataProviderInterface::class, $dataProvider);
+        return BlankString::class;
     }
 
     /**
