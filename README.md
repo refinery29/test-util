@@ -23,13 +23,22 @@ of the data providers:
 
 * `Refinery29\Test\Util\DataProvider\BlankString`
 * `Refinery29\Test\Util\DataProvider\InvalidBoolean`
+* `Refinery29\Test\Util\DataProvider\InvalidBooleanNotNull`
 * `Refinery29\Test\Util\DataProvider\InvalidFloat`
+* `Refinery29\Test\Util\DataProvider\InvalidFloatNotNull`
 * `Refinery29\Test\Util\DataProvider\InvalidInteger`
+* `Refinery29\Test\Util\DataProvider\InvalidIntegerNotNull`
+* `Refinery29\Test\Util\DataProvider\InvalidIntegerNotNull`
 * `Refinery29\Test\Util\DataProvider\InvalidNumeric`
+* `Refinery29\Test\Util\DataProvider\InvalidNumericNotNull`
 * `Refinery29\Test\Util\DataProvider\InvalidScalar`
+* `Refinery29\Test\Util\DataProvider\InvalidScalarNotNull`
 * `Refinery29\Test\Util\DataProvider\InvalidString`
+* `Refinery29\Test\Util\DataProvider\InvalidStringNotNull`
 * `Refinery29\Test\Util\DataProvider\InvalidUrl`
+* `Refinery29\Test\Util\DataProvider\InvalidUrlNotNull`
 * `Refinery29\Test\Util\DataProvider\InvalidUuid`
+* `Refinery29\Test\Util\DataProvider\InvalidUuidNotNull`
 
 ```php
 namespace Foo\Bar\Test;
