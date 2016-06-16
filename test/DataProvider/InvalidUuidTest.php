@@ -10,16 +10,13 @@
 namespace Refinery29\Test\Util\Test\DataProvider;
 
 use Assert\Assertion;
-use Refinery29\Test\Util\DataProvider\DataProviderInterface;
 use Refinery29\Test\Util\DataProvider\InvalidUuid;
 
-class InvalidUuidTest extends \PHPUnit_Framework_TestCase
+class InvalidUuidTest extends AbstractDataProviderTestCase
 {
-    public function testImplementsDataProviderInterface()
+    protected function className()
     {
-        $dataProvider = new InvalidUuid();
-
-        $this->assertInstanceOf(DataProviderInterface::class, $dataProvider);
+        return InvalidUuid::class;
     }
 
     /**

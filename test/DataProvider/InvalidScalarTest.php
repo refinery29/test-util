@@ -9,16 +9,13 @@
 
 namespace Refinery29\Test\Util\Test\DataProvider;
 
-use Refinery29\Test\Util\DataProvider\DataProviderInterface;
 use Refinery29\Test\Util\DataProvider\InvalidScalar;
 
-class InvalidScalarTest extends \PHPUnit_Framework_TestCase
+class InvalidScalarTest extends AbstractDataProviderTestCase
 {
-    public function testImplementsDataProviderInterface()
+    protected function className()
     {
-        $dataProvider = new InvalidScalar();
-
-        $this->assertInstanceOf(DataProviderInterface::class, $dataProvider);
+        return InvalidScalar::class;
     }
 
     /**

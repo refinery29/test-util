@@ -10,16 +10,13 @@
 namespace Refinery29\Test\Util\Test\DataProvider;
 
 use Assert\Assertion;
-use Refinery29\Test\Util\DataProvider\DataProviderInterface;
 use Refinery29\Test\Util\DataProvider\InvalidUrl;
 
-class InvalidUrlTest extends \PHPUnit_Framework_TestCase
+class InvalidUrlTest extends AbstractDataProviderTestCase
 {
-    public function testImplementsDataProviderInterface()
+    protected function className()
     {
-        $dataProvider = new InvalidUrl();
-
-        $this->assertInstanceOf(DataProviderInterface::class, $dataProvider);
+        return InvalidUrl::class;
     }
 
     /**
