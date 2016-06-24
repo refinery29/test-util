@@ -43,6 +43,7 @@ of the data providers:
 If you need generic values, you can use one of the data providers
 
 * `Refinery29\Test\Util\DataProvider\Boolean`
+* `Refinery29\Test\Util\DataProvider\Scalar`
 
 ```php
 namespace Foo\Bar\Test;
