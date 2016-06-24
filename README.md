@@ -40,6 +40,10 @@ of the data providers:
 * `Refinery29\Test\Util\DataProvider\InvalidUuid`
 * `Refinery29\Test\Util\DataProvider\InvalidUuidNotNull`
 
+If you need generic values, you can use one of the data providers
+
+* `Refinery29\Test\Util\DataProvider\Boolean`
+
 ```php
 namespace Foo\Bar\Test;
 
