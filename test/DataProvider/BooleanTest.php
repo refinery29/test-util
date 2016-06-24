@@ -23,7 +23,7 @@ class BooleanTest extends AbstractDataProviderTestCase
      *
      * @param bool $value
      */
-    public function testIsNotABoolean($value)
+    public function testIsABoolean($value)
     {
         $this->assertTrue(is_bool($value));
     }
