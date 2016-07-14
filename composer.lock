@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "3b2803c6cd4d416db9e9e44ae13e2f45",
-    "content-hash": "e15671f90add1b77ab513bf3da083277",
+    "hash": "5276b028d9826fc85196b034f482b750",
+    "content-hash": "ff442f958bafd271b60b44dbba99e9c6",
     "packages": [
         {
             "name": "fzaninotto/faker",
@@ -942,16 +942,16 @@
         },
         {
             "name": "refinery29/php-cs-fixer-config",
-            "version": "0.4.16",
+            "version": "0.4.18",
             "source": {
                 "type": "git",
                 "url": "https://github.com/refinery29/php-cs-fixer-config.git",
-                "reference": "7dd3a4117f69300ba1c7ef69e9738f1bc1fdb312"
+                "reference": "661f282db4f10f8b047c68e2309228d9c1b2241b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/refinery29/php-cs-fixer-config/zipball/7dd3a4117f69300ba1c7ef69e9738f1bc1fdb312",
-                "reference": "7dd3a4117f69300ba1c7ef69e9738f1bc1fdb312",
+                "url": "https://api.github.com/repos/refinery29/php-cs-fixer-config/zipball/661f282db4f10f8b047c68e2309228d9c1b2241b",
+                "reference": "661f282db4f10f8b047c68e2309228d9c1b2241b",
                 "shasum": ""
             },
             "require": {
@@ -959,8 +959,8 @@
                 "php": "^5.5 || ^7.0"
             },
             "require-dev": {
-                "codeclimate/php-test-reporter": "0.3.0",
-                "phpunit/phpunit": "^4.8.24"
+                "codeclimate/php-test-reporter": "0.3.2",
+                "phpunit/phpunit": "^4.8.26"
             },
             "type": "library",
             "autoload": {
@@ -979,7 +979,7 @@
                 }
             ],
             "description": "Provides a configuration for friendsofphp/php-cs-fixer, used within Refinery29.",
-            "time": "2016-05-31 13:24:02"
+            "time": "2016-07-14 09:57:54"
         },
         {
             "name": "satooshi/php-coveralls",
