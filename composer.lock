@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "00633b3e17dbbee40105792452aa235b",
-    "content-hash": "ff442f958bafd271b60b44dbba99e9c6",
+    "hash": "e69d8445d30b08ce1c2b5da19db30b84",
+    "content-hash": "faaf88a0d1d160542afff74c33036fb7",
     "packages": [
         {
             "name": "fzaninotto/faker",
@@ -943,16 +943,16 @@
         },
         {
             "name": "refinery29/php-cs-fixer-config",
-            "version": "0.4.18",
+            "version": "0.4.19",
             "source": {
                 "type": "git",
                 "url": "https://github.com/refinery29/php-cs-fixer-config.git",
-                "reference": "661f282db4f10f8b047c68e2309228d9c1b2241b"
+                "reference": "ed7b547cc57ff0b7b3b544eb2268bb85ed3ca4cc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/refinery29/php-cs-fixer-config/zipball/661f282db4f10f8b047c68e2309228d9c1b2241b",
-                "reference": "661f282db4f10f8b047c68e2309228d9c1b2241b",
+                "url": "https://api.github.com/repos/refinery29/php-cs-fixer-config/zipball/ed7b547cc57ff0b7b3b544eb2268bb85ed3ca4cc",
+                "reference": "ed7b547cc57ff0b7b3b544eb2268bb85ed3ca4cc",
                 "shasum": ""
             },
             "require": {
@@ -980,7 +980,7 @@
                 }
             ],
             "description": "Provides a configuration for friendsofphp/php-cs-fixer, used within Refinery29.",
-            "time": "2016-07-14 09:57:54"
+            "time": "2016-07-22 07:21:39"
         },
         {
             "name": "satooshi/php-coveralls",
