@@ -35,7 +35,7 @@
         "beberlei/assert": "^2.5.0",
         "codeclimate/php-test-reporter": "0.3.2",
         "phpunit/phpunit": "^5.4.2",
-        "refinery29/php-cs-fixer-config": "0.4.19"
+        "refinery29/php-cs-fixer-config": "0.4.20"
     },
     "autoload": {
         "psr-4": {
