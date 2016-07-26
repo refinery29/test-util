@@ -32,7 +32,7 @@
         "fzaninotto/faker": "^1.6.0"
     },
     "require-dev": {
-        "beberlei/assert": "^2.5.0",
+        "beberlei/assert": "^2.6.2",
         "codeclimate/php-test-reporter": "0.3.2",
         "phpunit/phpunit": "^5.4.2",
         "refinery29/php-cs-fixer-config": "0.4.20"

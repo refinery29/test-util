@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "d7ef2a29c9a4865859ba6957158394e3",
-    "content-hash": "a39b6cfd08faae91c9aa28c25f42f640",
+    "hash": "67a18de840448c7669d2254d2a747bc9",
+    "content-hash": "35ecf3bae96bee4c7bb5c14ff11b63d8",
     "packages": [
         {
             "name": "fzaninotto/faker",
@@ -59,16 +59,16 @@
     "packages-dev": [
         {
             "name": "beberlei/assert",
-            "version": "v2.5",
+            "version": "v2.6.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/beberlei/assert.git",
-                "reference": "91e2690c4ecc8a4e3e2d333430069f6a0c694a7a"
+                "reference": "9c86caae1354c663cc6e24032ae7c3d0154ec331"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/beberlei/assert/zipball/91e2690c4ecc8a4e3e2d333430069f6a0c694a7a",
-                "reference": "91e2690c4ecc8a4e3e2d333430069f6a0c694a7a",
+                "url": "https://api.github.com/repos/beberlei/assert/zipball/9c86caae1354c663cc6e24032ae7c3d0154ec331",
+                "reference": "9c86caae1354c663cc6e24032ae7c3d0154ec331",
                 "shasum": ""
             },
             "require": {
@@ -81,7 +81,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.3-dev"
+                    "dev-master": "2.5-dev"
                 }
             },
             "autoload": {
@@ -99,7 +99,13 @@
             "authors": [
                 {
                     "name": "Benjamin Eberlei",
-                    "email": "kontakt@beberlei.de"
+                    "email": "kontakt@beberlei.de",
+                    "role": "Lead Developer"
+                },
+                {
+                    "name": "Richard Quadling",
+                    "email": "rquadling@gmail.com",
+                    "role": "Collaborator"
                 }
             ],
             "description": "Thin assertion library for input validation in business models.",
@@ -108,7 +114,7 @@
                 "assertion",
                 "validation"
             ],
-            "time": "2016-03-22 14:34:51"
+            "time": "2016-07-26 00:20:59"
         },
         {
             "name": "codeclimate/php-test-reporter",
