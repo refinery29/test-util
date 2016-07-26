@@ -21,7 +21,7 @@ abstract class AbstractDataProvider implements DataProviderInterface
      */
     abstract protected function values();
 
-    public function data()
+    final public function data()
     {
         return $this->provideData($this->values());
     }
