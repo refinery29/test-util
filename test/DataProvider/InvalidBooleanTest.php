@@ -19,7 +19,7 @@ class InvalidBooleanTest extends AbstractDataProviderTestCase
     }
 
     /**
-     * @dataProvider Refinery29\Test\Util\DataProvider\InvalidBoolean::data()
+     * @dataProvider \Refinery29\Test\Util\DataProvider\InvalidBoolean::data()
      *
      * @param mixed $value
      */

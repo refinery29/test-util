@@ -21,7 +21,7 @@ class InvalidFloatNotNullTest extends AbstractDataProviderTestCase
     }
 
     /**
-     * @dataProvider Refinery29\Test\Util\DataProvider\InvalidFloatNotNull::data()
+     * @dataProvider \Refinery29\Test\Util\DataProvider\InvalidFloatNotNull::data()
      *
      * @param mixed $value
      */

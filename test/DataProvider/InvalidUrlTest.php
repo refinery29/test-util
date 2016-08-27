@@ -20,7 +20,7 @@ class InvalidUrlTest extends AbstractDataProviderTestCase
     }
 
     /**
-     * @dataProvider Refinery29\Test\Util\DataProvider\InvalidUrl::data()
+     * @dataProvider \Refinery29\Test\Util\DataProvider\InvalidUrl::data()
      *
      * @param mixed $value
      */

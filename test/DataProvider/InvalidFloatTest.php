@@ -19,7 +19,7 @@ class InvalidFloatTest extends AbstractDataProviderTestCase
     }
 
     /**
-     * @dataProvider Refinery29\Test\Util\DataProvider\InvalidFloat::data()
+     * @dataProvider \Refinery29\Test\Util\DataProvider\InvalidFloat::data()
      *
      * @param mixed $value
      */

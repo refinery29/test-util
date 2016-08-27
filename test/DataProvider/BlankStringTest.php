@@ -19,7 +19,7 @@ class BlankStringTest extends AbstractDataProviderTestCase
     }
 
     /**
-     * @dataProvider Refinery29\Test\Util\DataProvider\BlankString::data()
+     * @dataProvider \Refinery29\Test\Util\DataProvider\BlankString::data()
      *
      * @param mixed $value
      */

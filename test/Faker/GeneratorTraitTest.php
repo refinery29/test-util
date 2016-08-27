@@ -32,7 +32,7 @@ class GeneratorTraitTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @dataProvider Refinery29\Test\Util\DataProvider\InvalidString::data()
+     * @dataProvider \Refinery29\Test\Util\DataProvider\InvalidString::data()
      *
      * @param mixed $locale
      */

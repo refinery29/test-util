@@ -21,7 +21,7 @@ class InvalidScalarNotNullTest extends AbstractDataProviderTestCase
     }
 
     /**
-     * @dataProvider Refinery29\Test\Util\DataProvider\InvalidScalarNotNull::data()
+     * @dataProvider \Refinery29\Test\Util\DataProvider\InvalidScalarNotNull::data()
      *
      * @param mixed $value
      */

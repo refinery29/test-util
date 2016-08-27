@@ -19,7 +19,7 @@ class ScalarTest extends AbstractDataProviderTestCase
     }
 
     /**
-     * @dataProvider Refinery29\Test\Util\DataProvider\Scalar::data()
+     * @dataProvider \Refinery29\Test\Util\DataProvider\Scalar::data()
      *
      * @param mixed $value
      */

@@ -22,7 +22,7 @@ class InvalidUrlNotNullTest extends AbstractDataProviderTestCase
     }
 
     /**
-     * @dataProvider Refinery29\Test\Util\DataProvider\InvalidUrlNotNull::data()
+     * @dataProvider \Refinery29\Test\Util\DataProvider\InvalidUrlNotNull::data()
      *
      * @param mixed $value
      */
