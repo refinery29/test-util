@@ -21,7 +21,7 @@ class InvalidNumericNotNullTest extends AbstractDataProviderTestCase
     }
 
     /**
-     * @dataProvider Refinery29\Test\Util\DataProvider\InvalidNumericNotNull::data()
+     * @dataProvider \Refinery29\Test\Util\DataProvider\InvalidNumericNotNull::data()
      *
      * @param mixed $value
      */

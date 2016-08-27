@@ -19,7 +19,7 @@ class InvalidStringTest extends AbstractDataProviderTestCase
     }
 
     /**
-     * @dataProvider Refinery29\Test\Util\DataProvider\InvalidString::data()
+     * @dataProvider \Refinery29\Test\Util\DataProvider\InvalidString::data()
      *
      * @param mixed $value
      */

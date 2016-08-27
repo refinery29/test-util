@@ -21,7 +21,7 @@ class InvalidBooleanNotNullTest extends AbstractDataProviderTestCase
     }
 
     /**
-     * @dataProvider Refinery29\Test\Util\DataProvider\InvalidBooleanNotNull::data()
+     * @dataProvider \Refinery29\Test\Util\DataProvider\InvalidBooleanNotNull::data()
      *
      * @param mixed $value
      */

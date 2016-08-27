@@ -22,7 +22,7 @@ class InvalidUuidNotNullTest extends AbstractDataProviderTestCase
     }
 
     /**
-     * @dataProvider Refinery29\Test\Util\DataProvider\InvalidUuidNotNull::data()
+     * @dataProvider \Refinery29\Test\Util\DataProvider\InvalidUuidNotNull::data()
      *
      * @param mixed $value
      */

@@ -19,7 +19,7 @@ class InvalidScalarTest extends AbstractDataProviderTestCase
     }
 
     /**
-     * @dataProvider Refinery29\Test\Util\DataProvider\InvalidScalar::data()
+     * @dataProvider \Refinery29\Test\Util\DataProvider\InvalidScalar::data()
      *
      * @param mixed $value
      */

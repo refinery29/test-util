@@ -21,7 +21,7 @@ class InvalidStringNotNullTest extends AbstractDataProviderTestCase
     }
 
     /**
-     * @dataProvider Refinery29\Test\Util\DataProvider\InvalidStringNotNull::data()
+     * @dataProvider \Refinery29\Test\Util\DataProvider\InvalidStringNotNull::data()
      *
      * @param mixed $value
      */

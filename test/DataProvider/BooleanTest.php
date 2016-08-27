@@ -19,7 +19,7 @@ class BooleanTest extends AbstractDataProviderTestCase
     }
 
     /**
-     * @dataProvider Refinery29\Test\Util\DataProvider\Boolean::data()
+     * @dataProvider \Refinery29\Test\Util\DataProvider\Boolean::data()
      *
      * @param bool $value
      */

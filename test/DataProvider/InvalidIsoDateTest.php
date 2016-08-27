@@ -20,7 +20,7 @@ class InvalidIsoDateTest extends AbstractDataProviderTestCase
     }
 
     /**
-     * @dataProvider Refinery29\Test\Util\DataProvider\InvalidIsoDate::data()
+     * @dataProvider \Refinery29\Test\Util\DataProvider\InvalidIsoDate::data()
      *
      * @param mixed $value
      */
