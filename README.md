@@ -60,7 +60,7 @@ class BazTest extends \PHPUnit_Framework_TestCase
      */
     public function testConstructorRejectsInvalidValue($name)
     {
-        $this->expectException(InvalidArgumentException::class);
+        $this->expectException(\InvalidArgumentException::class);
         
         new Baz($name);
     }
@@ -95,8 +95,8 @@ class BazTest extends \PHPUnit_Framework_TestCase
         );
 
         $this->assertSame($name, $baz->name());
-        $this->assertNotSame($dateTime, $baz->date());
-        $this->assertEquals($dateTime, $baz->date());
+        $this->assertNotSame($date, $baz->date());
+        $this->assertEquals($date, $baz->date());
     }
 }
 ```
