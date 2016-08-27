@@ -16,7 +16,7 @@ trait DataProviderTrait
      *
      * @return \Generator
      */
-    public function provideData(array $values)
+    protected function provideData(array $values)
     {
         foreach ($values as $value) {
             yield [
