@@ -12,10 +12,9 @@ namespace Refinery29\Test\Util\DataProvider;
 interface DataProviderInterface
 {
     /**
-     * This method should return an array or a Traversable, iterating over which should return an array of arguments to
-     * pass to a test method that makes use of the concrete data provider.
+     * This method should return an array or a Traversable.
      *
      * @return array|\Traversable
      */
-    public function data();
+    public function values();
 }

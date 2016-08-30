@@ -15,7 +15,7 @@ class InvalidIsoDate extends InvalidString
 {
     use GeneratorTrait;
 
-    protected function values()
+    public function values()
     {
         $faker = $this->getFaker();
 
