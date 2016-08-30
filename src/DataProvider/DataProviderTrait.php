@@ -18,9 +18,9 @@ trait DataProviderTrait
      */
     protected function provideData(array $values)
     {
-        foreach ($values as $value) {
+        foreach ($values as $key => $value) {
             yield [
-                $value,
+                $key => $value,
             ];
         }
     }
