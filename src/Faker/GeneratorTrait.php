@@ -12,6 +12,9 @@ namespace Refinery29\Test\Util\Faker;
 use Faker\Factory;
 use Refinery29\Test\Util\Faker\Provider\Color;
 
+/**
+ * @deprecated Use TestTrait instead.
+ */
 trait GeneratorTrait
 {
     /**
