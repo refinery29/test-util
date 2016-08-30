@@ -29,6 +29,6 @@ class InvalidIsoDateNotNullTest extends AbstractDataProviderTestCase
         $this->expectException(\InvalidArgumentException::class);
 
         Assertion::string($value);
-        Assertion::date($value, DATE_ISO8601);
+        Assertion::date($value, DATE_ATOM);
     }
 }

@@ -23,16 +23,14 @@ class InvalidIsoDate extends InvalidString
 
         return array_merge(parent::values(), [
             $faker->word,
-            $date->format(DATE_ATOM),
+            $date->format(DATE_ISO8601),
             $date->format(DATE_COOKIE),
             $date->format(DATE_RFC822),
             $date->format(DATE_RFC850),
             $date->format(DATE_RFC1036),
             $date->format(DATE_RFC1123),
             $date->format(DATE_RFC2822),
-            $date->format(DATE_RFC3339),
             $date->format(DATE_RSS),
-            $date->format(DATE_W3C),
         ]);
     }
 }
