@@ -11,7 +11,7 @@ namespace Refinery29\Test\Util\DataProvider;
 
 class InvalidUrl extends InvalidString
 {
-    protected function values()
+    public function values()
     {
         $faker = $this->getFaker();
 

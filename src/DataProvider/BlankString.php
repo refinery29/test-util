@@ -11,7 +11,7 @@ namespace Refinery29\Test\Util\DataProvider;
 
 class BlankString extends AbstractDataProvider
 {
-    protected function values()
+    public function values()
     {
         return [
             '',

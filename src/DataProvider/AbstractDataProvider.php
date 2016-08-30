@@ -16,11 +16,6 @@ abstract class AbstractDataProvider implements DataProviderInterface
     use GeneratorTrait;
     use DataProviderTrait;
 
-    /**
-     * @return array
-     */
-    abstract protected function values();
-
     final public function data()
     {
         return $this->provideData($this->values());

@@ -13,7 +13,7 @@ class InvalidNumericNotNull extends InvalidNumeric
 {
     use NotNull;
 
-    protected function values()
+    public function values()
     {
         return $this->notNull(parent::values());
     }

@@ -13,7 +13,7 @@ class InvalidIsoDateNotNull extends InvalidIsoDate
 {
     use NotNull;
 
-    protected function values()
+    public function values()
     {
         return $this->notNull(parent::values());
     }
