@@ -104,6 +104,47 @@ class BazTest extends \PHPUnit_Framework_TestCase
 }
 ```
 
+If you want to yield values from multiple data providers, but want to combine 
+with some other values, use the `DataProviderTrait` along with the `Elements` data provider:
+ 
+```php
+namespace Foo\Bar\Test;
+
+use Foo\Bar\Baz;
+use Refinery29\Test\Util\DataProvider;
+
+class BazTest extends \PHPUnit_Framework_TestCase
+{
+    use DataProvider\DataProviderTrait;
+    
+    /**
+     * @dataProvider providerInvalidValue
+     * 
+     * @param mixed $name
+     */
+    public function testConstructorRejectsInvalidValue($name)
+    {
+        $this->expectException(\InvalidArgumentException::class);
+        
+        new Baz($name);
+    }
+    
+    /**
+     * @return \Generator
+     */
+    public function providerInvalidValue()
+    {
+        return $this->provideDataFrom(
+            new DataProvider\InvalidString(),
+            new DataProvider\Elements([
+                'foo',    
+                'bar',    
+            ])
+        );
+    }
+}
+```
+
 ### Faker GeneratorTrait
 
 If you need fake data in your tests, the `GeneratorTrait` comes in very handy, as it
