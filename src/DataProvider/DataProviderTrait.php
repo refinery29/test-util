@@ -24,4 +24,39 @@ trait DataProviderTrait
             ];
         }
     }
+
+    /**
+     * @param DataProviderInterface[] ...$dataProviders
+     *
+     * @return \Generator
+     */
+    protected function provideDataFrom(...$dataProviders)
+    {
+        /*
+         * This works around @link https://github.com/facebook/hhvm/issues/6954, otherwise we would just type-hint in
+         * the method signature above.
+         */
+        $dataProviders = array_map(function (DataProviderInterface $dataProvider) {
+            return $dataProvider;
+        }, $dataProviders);
+
+        $values = array_reduce(
+            $dataProviders,
+            function (array $carry, DataProviderInterface $dataProvider) {
+                $values = $dataProvider->values();
+
+                if ($values instanceof \Traversable) {
+                    $values = iterator_to_array($values);
+                }
+
+                return array_merge(
+                    $carry,
+                    $values
+                );
+            },
+            []
+        );
+
+        return $this->provideData($values);
+    }
 }
