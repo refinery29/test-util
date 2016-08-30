@@ -19,17 +19,22 @@ class DataProviderTraitTest extends \PHPUnit_Framework_TestCase
 
     public function testProvideDataYieldsValues()
     {
-        $values = $this->getFaker()->words;
+        $faker = $this->getFaker();
+
+        $values = array_combine(
+            $faker->unique()->words(5),
+            $faker->unique()->words(5)
+        );
 
         $data = $this->provideData($values);
 
         $this->assertInstanceOf(\Traversable::class, $data);
 
-        $expected = array_map(function ($value) {
+        $expected = array_map(function ($value, $key) {
             return [
-                $value,
+                $key => $value,
             ];
-        }, $values);
+        }, array_values($values), array_keys($values));
 
         $this->assertSame($expected, iterator_to_array($data));
     }
