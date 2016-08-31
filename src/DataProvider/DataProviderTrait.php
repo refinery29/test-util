@@ -10,7 +10,7 @@
 namespace Refinery29\Test\Util\DataProvider;
 
 /**
- * @deprecated Use TestTrait instead.
+ * @deprecated Use Refinery29\Test\Util\TestHelper instead.
  */
 trait DataProviderTrait
 {

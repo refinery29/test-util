@@ -13,7 +13,7 @@ use Faker\Factory;
 use Refinery29\Test\Util\Faker\Provider\Color;
 
 /**
- * @deprecated Use TestTrait instead.
+ * @deprecated Use Refinery29\Test\Util\TestHelper instead.
  */
 trait GeneratorTrait
 {
