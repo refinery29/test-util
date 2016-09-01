@@ -14,10 +14,10 @@ class BlankString extends AbstractDataProvider
     public function values()
     {
         return [
-            '',
-            ' ',
-            "\n",
-            "\t",
+            'empty-string' => '',
+            'string-with-spaces-only' => ' ',
+            'string-with-line-feed-only' => "\n",
+            'string-with-tab-only' => "\t",
         ];
     }
 }

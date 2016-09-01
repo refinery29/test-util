@@ -16,12 +16,12 @@ class InvalidNumeric extends AbstractDataProvider
         $faker = $this->getFaker();
 
         return [
-            null,
-            false,
-            true,
-            $faker->word,
-            $faker->words,
-            new \stdClass(),
+            'null' => null,
+            'boolean-false' => false,
+            'boolean-true' => true,
+            'string' => $faker->word,
+            'array' => $faker->words,
+            'object' => new \stdClass(),
         ];
     }
 }

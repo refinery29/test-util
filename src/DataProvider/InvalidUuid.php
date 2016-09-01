@@ -16,10 +16,10 @@ class InvalidUuid extends InvalidString
         $faker = $this->getFaker();
 
         return array_merge(parent::values(), [
-            $faker->word,
-            $faker->md5,
-            $faker->sha1,
-            $faker->sha256,
+            'string' => $faker->word,
+            'md5' => $faker->md5,
+            'sha1' => $faker->sha1,
+            'sha256' => $faker->sha256,
         ]);
     }
 }
