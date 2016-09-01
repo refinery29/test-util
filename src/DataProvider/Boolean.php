@@ -14,8 +14,8 @@ class Boolean extends AbstractDataProvider
     public function values()
     {
         return [
-            true,
-            false,
+            'boolean-true' => true,
+            'boolean-false' => false,
         ];
     }
 }

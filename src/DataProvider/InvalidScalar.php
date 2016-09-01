@@ -16,9 +16,9 @@ class InvalidScalar extends AbstractDataProvider
         $faker = $this->getFaker();
 
         return [
-            null,
-            $faker->words,
-            new \stdClass(),
+            'null' => null,
+            'array' => $faker->words,
+            'object' => new \stdClass(),
         ];
     }
 }

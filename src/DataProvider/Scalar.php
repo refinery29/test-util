@@ -16,10 +16,10 @@ class Scalar extends AbstractDataProvider
         $faker = $this->getFaker();
 
         return [
-            $faker->boolean(),
-            $faker->randomFloat(),
-            $faker->randomNumber(),
-            $faker->word,
+            'boolean' => $faker->boolean(),
+            'float' => $faker->randomFloat(),
+            'integer' => $faker->randomNumber(),
+            'string' => $faker->word,
         ];
     }
 }
