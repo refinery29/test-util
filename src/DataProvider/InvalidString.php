@@ -17,7 +17,8 @@ class InvalidString extends AbstractDataProvider
 
         return [
             'null' => null,
-            'boolean' => $faker->boolean(),
+            'boolean-true' => true,
+            'boolean-false' => false,
             'float' => $faker->randomFloat(),
             'integer' => $faker->randomNumber(),
             'array' => $faker->words,

@@ -17,7 +17,8 @@ class InvalidFloat extends AbstractDataProvider
 
         return [
             'null' => null,
-            'boolean' => $faker->boolean(),
+            'boolean-true' => true,
+            'boolean-false' => false,
             'integer' => $faker->randomNumber(),
             'float-casted-to-string' => (string) $faker->randomFloat(1),
             'string' => $faker->word,
