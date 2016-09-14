@@ -28,6 +28,8 @@ of the data providers:
 * `Refinery29\Test\Util\DataProvider\InvalidFloatNotNull`
 * `Refinery29\Test\Util\DataProvider\InvalidInteger`
 * `Refinery29\Test\Util\DataProvider\InvalidIntegerNotNull`
+* `Refinery29\Test\Util\DataProvider\InvalidIntegerish`
+* `Refinery29\Test\Util\DataProvider\InvalidIntegerishNotNull`
 * `Refinery29\Test\Util\DataProvider\InvalidIsoDate`
 * `Refinery29\Test\Util\DataProvider\InvalidIsoDateNotNull`
 * `Refinery29\Test\Util\DataProvider\InvalidNumeric`
