@@ -23,6 +23,6 @@ abstract class AbstractTestCase extends \PHPUnit_Framework_TestCase
 
     final public function testImplementsDataProviderInterface()
     {
-        $this->assertImplementsInterface(DataProviderInterface::class, $this->className());
+        $this->assertImplements(DataProviderInterface::class, $this->className());
     }
 }

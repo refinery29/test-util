@@ -267,7 +267,7 @@ class BazTest extends \PHPUnit_Framework_TestCase
 
 The `TestHelper` also provides an assertion:
 
-* `assertImplementsInterface($interfaceName, $className)`
+* `assertImplements($interfaceName, $className)`
 
 ## Contributing
 
