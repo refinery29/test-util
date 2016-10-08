@@ -9,11 +9,80 @@
 
 namespace Refinery29\Test\Util;
 
-use Refinery29\Test\Util\DataProvider\DataProviderTrait;
-use Refinery29\Test\Util\Faker\GeneratorTrait;
+use Faker\Factory;
 
 trait TestHelper
 {
-    use DataProviderTrait;
-    use GeneratorTrait;
+    /**
+     * @param string $locale
+     *
+     * @return Faker\Generator
+     */
+    protected static function getFaker($locale = 'en_US')
+    {
+        static $fakers = [];
+
+        if (!is_string($locale)) {
+            throw new \InvalidArgumentException('Locale should be a string');
+        }
+
+        if (!array_key_exists($locale, $fakers)) {
+            $faker = Factory::create($locale);
+            $faker->addProvider(new Faker\Provider\Color());
+            $faker->seed(9000);
+
+            $fakers[$locale] = $faker;
+        }
+
+        return $fakers[$locale];
+    }
+
+    /**
+     * @param array $values
+     *
+     * @return \Generator
+     */
+    protected function provideData(array $values)
+    {
+        foreach ($values as $key => $value) {
+            yield [
+                $key => $value,
+            ];
+        }
+    }
+
+    /**
+     * @param DataProvider\DataProviderInterface[] ...$dataProviders
+     *
+     * @return \Generator
+     */
+    protected function provideDataFrom(...$dataProviders)
+    {
+        /*
+         * This works around @link https://github.com/facebook/hhvm/issues/6954, otherwise we would just type-hint in
+         * the method signature above.
+         */
+        $dataProviders = array_map(function (DataProvider\DataProviderInterface $dataProvider) {
+            return $dataProvider;
+        }, $dataProviders);
+
+        $values = array_reduce(
+            $dataProviders,
+            function (array $carry, DataProvider\DataProviderInterface $dataProvider) {
+                $values = $dataProvider->values();
+
+                if ($values instanceof \Traversable) {
+                    $values = iterator_to_array($values);
+                }
+
+                return array_merge(
+                    $carry,
+                    $values
+                );
+            },
+            []
+        );
+
+        return $this->provideData($values);
+    }
 }

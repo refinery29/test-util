@@ -9,12 +9,11 @@
 
 namespace Refinery29\Test\Util\DataProvider;
 
-use Refinery29\Test\Util\Faker\GeneratorTrait;
+use Refinery29\Test\Util\TestHelper;
 
 abstract class AbstractDataProvider implements DataProviderInterface
 {
-    use GeneratorTrait;
-    use DataProviderTrait;
+    use TestHelper;
 
     final public function data()
     {

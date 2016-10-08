@@ -10,9 +10,12 @@
 namespace Refinery29\Test\Util\Test\DataProvider;
 
 use Refinery29\Test\Util\DataProvider\DataProviderInterface;
+use Refinery29\Test\Util\TestHelper;
 
 abstract class AbstractDataProviderTestCase extends \PHPUnit_Framework_TestCase
 {
+    use TestHelper;
+
     /**
      * @return string
      */

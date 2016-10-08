@@ -9,12 +9,8 @@
 
 namespace Refinery29\Test\Util\DataProvider;
 
-use Refinery29\Test\Util\Faker\GeneratorTrait;
-
 class InvalidIsoDate extends InvalidString
 {
-    use GeneratorTrait;
-
     public function values()
     {
         $faker = $this->getFaker();

@@ -10,12 +10,9 @@
 namespace Refinery29\Test\Util\Test\DataProvider;
 
 use Refinery29\Test\Util\DataProvider\Elements;
-use Refinery29\Test\Util\Faker\GeneratorTrait;
 
 class ElementsTest extends AbstractDataProviderTestCase
 {
-    use GeneratorTrait;
-
     protected function className()
     {
         return Elements::class;
