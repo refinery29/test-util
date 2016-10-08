@@ -12,7 +12,7 @@ namespace Refinery29\Test\Util\Test\DataProvider;
 use Assert\Assertion;
 use Refinery29\Test\Util\DataProvider\InvalidUrl;
 
-class InvalidUrlTest extends AbstractDataProviderTestCase
+class InvalidUrlTest extends AbstractTestCase
 {
     protected function className()
     {

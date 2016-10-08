@@ -12,10 +12,8 @@ namespace Refinery29\Test\Util\Test\DataProvider;
 use Assert\Assertion;
 use Refinery29\Test\Util\DataProvider\InvalidUrlNotNull;
 
-class InvalidUrlNotNullTest extends AbstractDataProviderTestCase
+class InvalidUrlNotNullTest extends AbstractNotNullTestCase
 {
-    use NotNull;
-
     protected function className()
     {
         return InvalidUrlNotNull::class;
@@ -30,6 +28,6 @@ class InvalidUrlNotNullTest extends AbstractDataProviderTestCase
     {
         $this->expectException(\InvalidArgumentException::class);
 
-        Assertion::nullOrUrl($value);
+        Assertion::url($value);
     }
 }

@@ -11,7 +11,7 @@ namespace Refinery29\Test\Util\Test\DataProvider;
 
 use Refinery29\Test\Util\DataProvider\Scalar;
 
-class ScalarTest extends AbstractDataProviderTestCase
+class ScalarTest extends AbstractTestCase
 {
     protected function className()
     {
