@@ -9,6 +9,9 @@
 
 namespace Refinery29\Test\Util\Test\Asset;
 
-final class Foo
+final class Foo implements \Countable
 {
+    public function count()
+    {
+    }
 }
