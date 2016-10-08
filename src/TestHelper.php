@@ -18,7 +18,7 @@ trait TestHelper
      *
      * @return Faker\Generator
      */
-    protected static function getFaker($locale = 'en_US')
+    final protected static function getFaker($locale = 'en_US')
     {
         static $fakers = [];
 
@@ -42,7 +42,7 @@ trait TestHelper
      *
      * @return \Generator
      */
-    protected function provideData(array $values)
+    final protected function provideData(array $values)
     {
         foreach ($values as $key => $value) {
             yield [
@@ -56,7 +56,7 @@ trait TestHelper
      *
      * @return \Generator
      */
-    protected function provideDataFrom(...$dataProviders)
+    final protected function provideDataFrom(...$dataProviders)
     {
         /*
          * This works around @link https://github.com/facebook/hhvm/issues/6954, otherwise we would just type-hint in
