@@ -87,6 +87,24 @@ trait TestHelper
     }
 
     /**
+     * @param string $className
+     */
+    final protected function assertFinal($className)
+    {
+        $this->assertTrue(class_exists($className), sprintf(
+            'Failed to assert that class "%s" exists',
+            $className
+        ));
+
+        $reflection = new \ReflectionClass($className);
+
+        $this->assertTrue($reflection->isFinal(), sprintf(
+            'Failed to assert that "%s" is final',
+            $className
+        ));
+    }
+
+    /**
      * @param string $interfaceName
      * @param string $className
      */

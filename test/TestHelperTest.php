@@ -185,6 +185,11 @@ final class TestHelperTest extends \PHPUnit_Framework_TestCase
         $this->assertGeneratorYieldsValues($values, $generator);
     }
 
+    public function testAssertFinal()
+    {
+        $this->assertFinal(Asset\Foo::class);
+    }
+
     /**
      * @param $generator
      * @param $values
