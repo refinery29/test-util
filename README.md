@@ -4,7 +4,7 @@
 [![Code Climate](https://codeclimate.com/github/refinery29/test-util/badges/gpa.svg)](https://codeclimate.com/github/refinery29/test-util)
 [![Test Coverage](https://codeclimate.com/github/refinery29/test-util/badges/coverage.svg)](https://codeclimate.com/github/refinery29/test-util/coverage)
 
-Provides test helpers and generic data providers.
+Provides a test helper, generic data providers, and assertions.
 
 ## Installation
 
@@ -262,6 +262,12 @@ class BazTest extends \PHPUnit_Framework_TestCase
     }
 }
 ```
+
+### Assertions
+
+The `TestHelper` also provides an assertion:
+
+* `assertImplementsInterface($interfaceName, $className)`
 
 ## Contributing
 

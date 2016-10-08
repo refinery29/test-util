@@ -1,6 +1,6 @@
 {
     "name": "refinery29/test-util",
-    "description": "Provides test helpers and generic data providers.",
+    "description": "Provides a test helper, generic data providers, and assertions.",
     "type": "library",
     "keywords": [
         "test",
