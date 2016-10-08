@@ -11,7 +11,7 @@ namespace Refinery29\Test\Util\Test;
 
 use Refinery29\Test\Util\DataProvider\DataProviderInterface;
 
-class DataProviderFake implements DataProviderInterface
+final class DataProviderFake implements DataProviderInterface
 {
     private $values;
 

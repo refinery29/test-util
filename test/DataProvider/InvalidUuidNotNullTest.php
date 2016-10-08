@@ -12,7 +12,7 @@ namespace Refinery29\Test\Util\Test\DataProvider;
 use Assert\Assertion;
 use Refinery29\Test\Util\DataProvider\InvalidUuidNotNull;
 
-class InvalidUuidNotNullTest extends AbstractNotNullTestCase
+final class InvalidUuidNotNullTest extends AbstractNotNullTestCase
 {
     protected function className()
     {

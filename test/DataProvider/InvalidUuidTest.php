@@ -12,7 +12,7 @@ namespace Refinery29\Test\Util\Test\DataProvider;
 use Assert\Assertion;
 use Refinery29\Test\Util\DataProvider\InvalidUuid;
 
-class InvalidUuidTest extends AbstractTestCase
+final class InvalidUuidTest extends AbstractTestCase
 {
     protected function className()
     {

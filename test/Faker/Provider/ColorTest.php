@@ -11,7 +11,7 @@ namespace Refinery29\Test\Util\Test\Faker\Provider;
 
 use Refinery29\Test\Util\Faker\Provider\Color;
 
-class ColorTest extends \PHPUnit_Framework_TestCase
+final class ColorTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * @link https://github.com/fzaninotto/Faker/blob/v1.5.0/test/Faker/Provider/ColorTest.php#L10-L13

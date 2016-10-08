@@ -12,7 +12,7 @@ namespace Refinery29\Test\Util\Test\DataProvider;
 use Assert\Assertion;
 use Refinery29\Test\Util\DataProvider\InvalidIsoDate;
 
-class InvalidIsoDateTest extends AbstractTestCase
+final class InvalidIsoDateTest extends AbstractTestCase
 {
     protected function className()
     {

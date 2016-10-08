@@ -12,7 +12,7 @@ namespace Refinery29\Test\Util\Test\Faker;
 use Faker\Generator as OriginalGenerator;
 use Refinery29\Test\Util\Faker\Generator;
 
-class GeneratorTest extends \PHPUnit_Framework_TestCase
+final class GeneratorTest extends \PHPUnit_Framework_TestCase
 {
     public function testExtendsBase()
     {
