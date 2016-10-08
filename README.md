@@ -189,7 +189,7 @@ final class WebsiteTest extends \PHPUnit_Framework_TestCase
             'http://www.refinery29.uk',
         ]);
     }
-    
+}
 ```
 
 ## Contributing
