@@ -17,7 +17,47 @@ $ composer require refinery29/test-util
 
 ## Usage
 
-### Data Provider
+### Test Helper
+
+If you want to make use of the test helper, import the `Refinery29\Test\Util\TestHelper` trait!
+
+```php
+namespace Acme\Test;
+
+use Refinery29\Test\Util\TestHelper;
+
+final class WebsiteTest extends \PHPUnit_Framework_TestCase
+{
+    use TestHelper;
+}
+```
+
+#### Additional Assertions
+
+The test helper provides a few assertions:
+
+* `assertFinal($className)`
+* `assertImplements($interfaceName, $className)`
+
+#### Generating fake data using Faker
+
+Lazily fetch an instance of `Faker\Generator` (see [`fzaninotto/faker`](https://github.com/fzaninotto/Faker)) using
+
+* `getFaker($locale = 'en_US') : \Faker\Generator`
+
+#### Providing data from an array of values
+
+Quickly provide data from an array of values, using
+
+* `provideData(array $data) : \Generator`
+
+#### Providing data from multiple concrete data providers
+
+Quickly provide data from multiple concrete data providers using
+
+* `provideDataFrom(...$dataProviders) : \Generator`
+
+### Data Providers
 
 If you need to assert that invalid values are rejected, you can use one 
 of the data providers:
@@ -49,142 +89,41 @@ If you need generic values, you can use one of the data providers
 * `Refinery29\Test\Util\DataProvider\Boolean`
 * `Refinery29\Test\Util\DataProvider\Scalar`
 
-```php
-namespace Foo\Bar\Test;
+If you want to mix data providers above with some arbitrary values, use
 
-use Foo\Bar\Baz;
+* `Refinery29\Test\Util\DataProvider\Elements`
 
-class BazTest extends \PHPUnit_Framework_TestCase
-{
-    /**
-     * @dataProvider \Refinery29\Test\Util\DataProvider\InvalidString::data()
-     * 
-     * @param mixed $name
-     */
-    public function testConstructorRejectsInvalidValue($name)
-    {
-        $this->expectException(\InvalidArgumentException::class);
-        
-        new Baz($name);
-    }
-}
-```
+### Example
 
-### Helpers
-
-If you want to make use of a few test helpers, use the `Refinery29\Test\Util\TestHelper` trait!
-
-#### Providing data from an array of values
-
-Use `provideData()` to provide values from an array of values:
+Putting it all together, here's an example of a test making use of the test helper:
 
 ```php
-namespace Foo\Bar\Test;
+namespace Acme\Test;
 
-use Foo\Bar\Baz;
-use Refinery29\Test\Util\TestHelper;
-
-class BazTest extends \PHPUnit_Framework_TestCase
-{
-    use TestHelper;
-    
-    /**
-     * @dataProvider providerInvalidValue
-     * 
-     * @param mixed $name
-     */
-    public function testConstructorRejectsInvalidValue($name)
-    {
-        $this->expectException(\InvalidArgumentException::class);
-        
-        new Baz($name);
-    }
-    
-    /**
-     * @return \Generator
-     */
-    public function providerInvalidValue()
-    {
-        return $this->provideData([
-            'foo',
-            'bar',
-        ]);
-    }
-}
-```
-
-#### Providing data from multiple concrete data providers
-
-Use `provideDataFrom()` to provide values from multiple concrete data providers:
-
-```php
-namespace Foo\Bar\Test;
-
-use Foo\Bar\Baz;
+use Acme\Website;
 use Refinery29\Test\Util\DataProvider;
 use Refinery29\Test\Util\TestHelper;
 
-class BazTest extends \PHPUnit_Framework_TestCase
+final class WebsiteTest extends \PHPUnit_Framework_TestCase
 {
     use TestHelper;
     
     /**
-     * @dataProvider providerInvalidValue
+     * @dataProvider providerInvalidTitle
      * 
-     * @param mixed $name
+     * @param mixed $title
      */
-    public function testConstructorRejectsInvalidValue($name)
+    public function testConstructorRejectsInvalidTitle($title)
     {
         $this->expectException(\InvalidArgumentException::class);
         
-        new Baz($name);
+        new Website($title);
     }
     
     /**
      * @return \Generator
      */
-    public function providerInvalidValue()
-    {
-        return $this->provideDataFrom(
-            new DataProvider\InvalidString(),
-            new DataProvider\BlankString()
-        );
-    }
-}
-```
-
-#### Providing data from concrete data providers and arrays of data
-
-Use `provideDataFrom()` along with the `Elements` data provider to 
-combine concrete data providers with data from an array of values:
-
-```php
-namespace Foo\Bar\Test;
-
-use Foo\Bar\Baz;
-use Refinery29\Test\Util\DataProvider;
-use Refinery29\Test\Util\TestHelper;
-
-class BazTest extends \PHPUnit_Framework_TestCase
-{
-    use TestHelper;
-    
-    /**
-     * @dataProvider providerInvalidValue
-     * 
-     * @param mixed $name
-     */
-    public function testConstructorRejectsInvalidValue($name)
-    {
-        $this->expectException(\InvalidArgumentException::class);
-        
-        new Baz($name);
-    }
-    
-    /**
-     * @return \Generator
-     */
-    public function providerInvalidValue()
+    public function providerInvalidTitle()
     {
         return $this->provideDataFrom(
             new DataProvider\InvalidString(),
@@ -195,81 +134,63 @@ class BazTest extends \PHPUnit_Framework_TestCase
             ])
         );
     }
-}
-```
-
-### Faker
-
-If you need fake data in your tests, lazily fetch an instance of `Faker\Generator` 
-(see [`fzaninotto/faker`](https://github.com/fzaninotto/Faker)) using `getFaker()`
-
-```php
-namespace Foo\Bar\Test;
-
-use Foo\Bar\Baz;
-use Refinery29\Test\Util\TestHelper;
-
-class BazTest extends \PHPUnit_Framework_TestCase
-{
-    use TestHelper;
-
-    public function testConstructorSetsName()
+    
+    public function testConstructorSetsTitle()
     {
-        $faker = $this->getFaker();
-
-        $name = $faker->name;
-        $date = $faker->dateTime;
-
-        $baz = new Baz(
-            $name,
-            $date
-        );
-
-        $this->assertSame($name, $baz->name());
-        $this->assertNotSame($date, $baz->date());
-        $this->assertEquals($date, $baz->date());
+        $title = $this->getFaker()->sentence();
+        
+        $website = new Website($title);
+        
+        $this->assertSame($title, $website->title());
     }
-}
-```
-
-If you need an instance of `Faker\Generator` with a locale other than 
-the default (`en_US`), pass in the locale to `getFaker()`:
-
-```php
-namespace Foo\Bar\Test;
-
-use Foo\Bar\Baz;
-use Refinery29\Test\Util\TestHelper;
-
-class BazTest extends \PHPUnit_Framework_TestCase
-{
-    use TestHelper;
-
-    public function testConstructorSetsName()
+    
+    /**
+     * @dataProvider \Refinery29\Test\Util\DataProvider\InvalidUrl::data()
+     * 
+     * @param mixed $url
+     */
+    public function testWithUrlRejectsInvalidUrl($url)
     {
-        $faker = $this->getFaker('de_DE');
-
-        $name = $faker->name;
-        $date = $faker->dateTime;
-
-        $baz = new Baz(
-            $name,
-            $date
-        );
-
-        $this->assertSame($name, $baz->name());
-        $this->assertNotSame($date, $baz->date());
-        $this->assertEquals($date, $baz->date());
+        $title = $this->getFaker()->sentence();
+        
+        $website = new Website($title);
+        
+        $this->expectException(\InvalidArgumentException::class);
+        
+        $website->withUrl($url);
     }
-}
+    
+    /**
+     * @dataProvider providerUrl
+     * 
+     * @param string $url
+     */
+    public function testWithUrlClonesInstanceAndSetsUrl($url)
+    {
+        $title = $this->getFaker()->sentence();
+        
+        $website = new Website($title);
+        
+        $mutated = $website->withUrl($url);
+        
+        $this->assertInstanceOf(Website::class, $mutated);
+        $this->assertNotSame($website, $mutated);
+        $this->assertSame($url, $mutated->url());
+    }
+ 
+    /**
+     * @return \Generator
+     */
+    public function providerUrl()
+    {
+        return $this->provideData([
+            'http://www.refinery29.com',
+            'http://www.refinery29.de',
+            'http://www.refinery29.uk',
+        ]);
+    }
+    
 ```
-
-### Assertions
-
-The `TestHelper` also provides assertions:
-
-* `assertFinal($className)`
-* `assertImplements($interfaceName, $className)`
 
 ## Contributing
 
