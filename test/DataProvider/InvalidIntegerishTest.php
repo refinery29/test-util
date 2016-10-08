@@ -9,7 +9,7 @@
 
 namespace Refinery29\Test\Util\Test\DataProvider;
 
-use Assert\Assertion;
+use Assert;
 use Refinery29\Test\Util\DataProvider\InvalidIntegerish;
 
 final class InvalidIntegerishTest extends AbstractTestCase
@@ -28,6 +28,6 @@ final class InvalidIntegerishTest extends AbstractTestCase
     {
         $this->expectException(\InvalidArgumentException::class);
 
-        Assertion::integerish($value);
+        Assert\that($value)->integerish();
     }
 }
