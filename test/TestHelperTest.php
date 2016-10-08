@@ -71,18 +71,12 @@ class TestHelperTest extends \PHPUnit_Framework_TestCase
      */
     public function providerLocale()
     {
-        $values = [
+        return $this->provideData([
             'de_DE',
             'en_US',
             'en_UK',
             'fr_FR',
-        ];
-
-        foreach ($values as $value) {
-            yield [
-                $value,
-            ];
-        }
+        ]);
     }
 
     /**
@@ -113,15 +107,9 @@ class TestHelperTest extends \PHPUnit_Framework_TestCase
     {
         $reflection = new \ReflectionClass(Provider\Color::class);
 
-        $data = [];
-
-        foreach ($reflection->getMethods() as $method) {
-            $data[] = [
-                $method->getName(),
-            ];
-        }
-
-        return $data;
+        return $this->provideData(array_map(function (\ReflectionMethod $method) {
+            return $method->getName();
+        }, $reflection->getMethods()));
     }
 
     public function testProvideDataYieldsValues()
