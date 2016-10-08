@@ -9,10 +9,7 @@
 
 namespace Refinery29\Test\Util\Test\DataProvider;
 
-/**
- * @internal
- */
-trait NotNull
+abstract class AbstractNotNullTestCase extends AbstractTestCase
 {
     final public function testDoesNotProvideNull()
     {

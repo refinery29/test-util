@@ -11,7 +11,7 @@ namespace Refinery29\Test\Util\Test\DataProvider;
 
 use Refinery29\Test\Util\DataProvider\BlankString;
 
-class BlankStringTest extends AbstractDataProviderTestCase
+class BlankStringTest extends AbstractTestCase
 {
     protected function className()
     {

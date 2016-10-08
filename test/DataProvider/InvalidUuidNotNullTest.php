@@ -12,10 +12,8 @@ namespace Refinery29\Test\Util\Test\DataProvider;
 use Assert\Assertion;
 use Refinery29\Test\Util\DataProvider\InvalidUuidNotNull;
 
-class InvalidUuidNotNullTest extends AbstractDataProviderTestCase
+class InvalidUuidNotNullTest extends AbstractNotNullTestCase
 {
-    use NotNull;
-
     protected function className()
     {
         return InvalidUuidNotNull::class;
@@ -30,7 +28,7 @@ class InvalidUuidNotNullTest extends AbstractDataProviderTestCase
     {
         $this->expectException(\InvalidArgumentException::class);
 
-        Assertion::nullOrString($value);
-        Assertion::nullOrUuid($value);
+        Assertion::string($value);
+        Assertion::uuid($value);
     }
 }
