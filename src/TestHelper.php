@@ -108,7 +108,7 @@ trait TestHelper
      * @param string $interfaceName
      * @param string $className
      */
-    final public function assertImplements($interfaceName, $className)
+    final protected function assertImplements($interfaceName, $className)
     {
         $this->assertTrue(interface_exists($interfaceName), sprintf(
             'Failed to assert that interface "%s" exists',
