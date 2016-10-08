@@ -13,7 +13,7 @@ use Faker\Generator;
 use Refinery29\Test\Util\Faker\Provider;
 use Refinery29\Test\Util\TestHelper;
 
-class TestTraitTest extends \PHPUnit_Framework_TestCase
+class TestHelperTest extends \PHPUnit_Framework_TestCase
 {
     use TestHelper;
 
