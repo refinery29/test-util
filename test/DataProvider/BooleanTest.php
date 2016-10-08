@@ -11,7 +11,7 @@ namespace Refinery29\Test\Util\Test\DataProvider;
 
 use Refinery29\Test\Util\DataProvider\Boolean;
 
-class BooleanTest extends AbstractTestCase
+final class BooleanTest extends AbstractTestCase
 {
     protected function className()
     {

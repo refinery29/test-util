@@ -12,7 +12,7 @@ namespace Refinery29\Test\Util\Test\DataProvider;
 use Assert\Assertion;
 use Refinery29\Test\Util\DataProvider\InvalidUrlNotNull;
 
-class InvalidUrlNotNullTest extends AbstractNotNullTestCase
+final class InvalidUrlNotNullTest extends AbstractNotNullTestCase
 {
     protected function className()
     {

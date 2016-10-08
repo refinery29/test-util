@@ -11,7 +11,7 @@ namespace Refinery29\Test\Util\Test\DataProvider;
 
 use Refinery29\Test\Util\DataProvider\Elements;
 
-class ElementsTest extends AbstractTestCase
+final class ElementsTest extends AbstractTestCase
 {
     protected function className()
     {

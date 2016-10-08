@@ -11,7 +11,7 @@ namespace Refinery29\Test\Util\Test\DataProvider;
 
 use Refinery29\Test\Util\DataProvider\InvalidIntegerNotNull;
 
-class InvalidIntegerNotNullTest extends AbstractNotNullTestCase
+final class InvalidIntegerNotNullTest extends AbstractNotNullTestCase
 {
     public function className()
     {

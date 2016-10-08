@@ -11,7 +11,7 @@ namespace Refinery29\Test\Util\Test\DataProvider;
 
 use Refinery29\Test\Util\DataProvider\InvalidScalarNotNull;
 
-class InvalidScalarNotNullTest extends AbstractNotNullTestCase
+final class InvalidScalarNotNullTest extends AbstractNotNullTestCase
 {
     protected function className()
     {

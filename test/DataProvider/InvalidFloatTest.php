@@ -11,7 +11,7 @@ namespace Refinery29\Test\Util\Test\DataProvider;
 
 use Refinery29\Test\Util\DataProvider\InvalidFloat;
 
-class InvalidFloatTest extends AbstractTestCase
+final class InvalidFloatTest extends AbstractTestCase
 {
     protected function className()
     {
