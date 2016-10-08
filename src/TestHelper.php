@@ -85,4 +85,29 @@ trait TestHelper
 
         return $this->provideData($values);
     }
+
+    /**
+     * @param string $interfaceName
+     * @param string $className
+     */
+    final public function assertImplementsInterface($interfaceName, $className)
+    {
+        $this->assertTrue(interface_exists($interfaceName), sprintf(
+            'Failed to assert that interface "%s" exists',
+            $interfaceName
+        ));
+
+        $this->assertTrue(class_exists($className), sprintf(
+            'Failed to assert that class "%s" exists',
+            $className
+        ));
+
+        $reflection = new \ReflectionClass($className);
+
+        $this->assertTrue($reflection->implementsInterface($interfaceName), sprintf(
+            'Failed to assert that "%s" implements "%s"',
+            $className,
+            $interfaceName
+        ));
+    }
 }
