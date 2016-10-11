@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "f108e5c612f09d7d076bd66c68d0aba5",
-    "content-hash": "59882c990a1bc614784b0941a0b00997",
+    "hash": "0310ea6320f2badb604f92d4525c1156",
+    "content-hash": "de89e43a86ca1d1b3b827a7a05a9aa8b",
     "packages": [
         {
             "name": "fzaninotto/faker",
@@ -59,16 +59,16 @@
     "packages-dev": [
         {
             "name": "beberlei/assert",
-            "version": "v2.6.2",
+            "version": "2.6.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/beberlei/assert.git",
-                "reference": "9c86caae1354c663cc6e24032ae7c3d0154ec331"
+                "reference": "fbadde44717ea3eb98fba35425d49731185bf418"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/beberlei/assert/zipball/9c86caae1354c663cc6e24032ae7c3d0154ec331",
-                "reference": "9c86caae1354c663cc6e24032ae7c3d0154ec331",
+                "url": "https://api.github.com/repos/beberlei/assert/zipball/fbadde44717ea3eb98fba35425d49731185bf418",
+                "reference": "fbadde44717ea3eb98fba35425d49731185bf418",
                 "shasum": ""
             },
             "require": {
@@ -76,14 +76,10 @@
                 "php": ">=5.3"
             },
             "require-dev": {
+                "friendsofphp/php-cs-fixer": "2.0.0-alpha",
                 "phpunit/phpunit": "@stable"
             },
             "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.5-dev"
-                }
-            },
             "autoload": {
                 "psr-0": {
                     "Assert": "lib/"
@@ -114,7 +110,7 @@
                 "assertion",
                 "validation"
             ],
-            "time": "2016-07-26 00:20:59"
+            "time": "2016-10-11 17:13:28"
         },
         {
             "name": "codeclimate/php-test-reporter",
