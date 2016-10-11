@@ -105,6 +105,31 @@ trait TestHelper
     }
 
     /**
+     * @param string $parentClassName
+     * @param string $className
+     */
+    final protected function assertExtends($parentClassName, $className)
+    {
+        $this->assertTrue(class_exists($parentClassName), sprintf(
+            'Failed to assert that class "%s" exists',
+            $parentClassName
+        ));
+
+        $this->assertTrue(class_exists($className), sprintf(
+            'Failed to assert that class "%s" exists',
+            $className
+        ));
+
+        $reflection = new \ReflectionClass($className);
+
+        $this->assertTrue($reflection->isSubclassOf($parentClassName), sprintf(
+            'Failed to assert that "%s" extends "%s"',
+            $className,
+            $parentClassName
+        ));
+    }
+
+    /**
      * @param string $interfaceName
      * @param string $className
      */
