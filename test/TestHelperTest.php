@@ -195,6 +195,11 @@ final class TestHelperTest extends \PHPUnit_Framework_TestCase
         $this->assertImplements(\Countable::class, Asset\Foo::class);
     }
 
+    public function testAssertExtends()
+    {
+        $this->assertExtends(Asset\Bar::class, Asset\Foo::class);
+    }
+
     /**
      * @param $generator
      * @param $values
