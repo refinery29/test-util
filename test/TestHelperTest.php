@@ -185,19 +185,75 @@ final class TestHelperTest extends \PHPUnit_Framework_TestCase
         $this->assertGeneratorYieldsValues($values, $generator);
     }
 
-    public function testAssertFinal()
+    public function testAssertFinalFailsWhenClassDoesNotExist()
+    {
+        $this->expectException(\PHPUnit_Framework_AssertionFailedError::class);
+
+        $this->assertFinal('foobarbaz');
+    }
+
+    public function testAssertFinalFailsWhenClassIsNotFinal()
+    {
+        $this->expectException(\PHPUnit_Framework_AssertionFailedError::class);
+
+        $this->assertFinal(\stdClass::class);
+    }
+
+    public function testAssertFinalSucceedsWhenClassIsFinal()
     {
         $this->assertFinal(Asset\Foo::class);
     }
 
-    public function testAssertImplements()
+    public function testAssertExtendsFailsWhenParentDoesNotExist()
     {
-        $this->assertImplements(\Countable::class, Asset\Foo::class);
+        $this->expectException(\PHPUnit_Framework_AssertionFailedError::class);
+
+        $this->assertExtends('foobarbaz', \stdClass::class);
     }
 
-    public function testAssertExtends()
+    public function testAssertExtendsFailsWhenChildDoesNotExist()
+    {
+        $this->expectException(\PHPUnit_Framework_AssertionFailedError::class);
+
+        $this->assertExtends(\stdClass::class, 'foobarbaz');
+    }
+
+    public function testAssertExtendsFailsWhenChildDoesNotExtendParent()
+    {
+        $this->expectException(\PHPUnit_Framework_AssertionFailedError::class);
+
+        $this->assertExtends(\stdClass::class, Asset\Foo::class);
+    }
+
+    public function testAssertExtendsSucceedsWhenChildExtendsParent()
     {
         $this->assertExtends(Asset\Bar::class, Asset\Foo::class);
+    }
+
+    public function testAssertImplementsFailsWhenInterfaceDoesNotExist()
+    {
+        $this->expectException(\PHPUnit_Framework_AssertionFailedError::class);
+
+        $this->assertImplements('foobarbaz', \stdClass::class);
+    }
+
+    public function testAssertImplementsFailsWhenClassDoesNotExist()
+    {
+        $this->expectException(\PHPUnit_Framework_AssertionFailedError::class);
+
+        $this->assertImplements(\Countable::class, 'foobarbaz');
+    }
+
+    public function testAssertImplementFailsWhenClassDoesNotImplementInterface()
+    {
+        $this->expectException(\PHPUnit_Framework_AssertionFailedError::class);
+
+        $this->assertImplements(\Countable::class, \stdClass::class);
+    }
+
+    public function testAssertImplementSucceedsWhenClassImplementsInterface()
+    {
+        $this->assertImplements(\Countable::class, Asset\Foo::class);
     }
 
     /**
