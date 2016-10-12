@@ -9,9 +9,6 @@
 
 namespace Refinery29\Test\Util\Test\Asset;
 
-final class Foo extends Bar implements \Countable
+class NonImplementingClass
 {
-    public function count()
-    {
-    }
 }
