@@ -204,30 +204,56 @@ final class TestHelperTest extends \PHPUnit_Framework_TestCase
         $this->assertFinal(Asset\FinalClass::class);
     }
 
-    public function testAssertExtendsFailsWhenParentDoesNotExist()
+    public function testAssertExtendsFailsWhenParentClassDoesNotExist()
     {
         $this->expectException(\PHPUnit_Framework_AssertionFailedError::class);
 
         $this->assertExtends('foobarbaz', Asset\ChildClass::class);
     }
 
-    public function testAssertExtendsFailsWhenChildDoesNotExist()
+    public function testAssertExtendsFailsWhenParentInterfaceDoesNotExist()
+    {
+        $this->expectException(\PHPUnit_Framework_AssertionFailedError::class);
+
+        $this->assertExtends('foobarbaz', Asset\ChildInterface::class);
+    }
+
+    public function testAssertExtendsFailsWhenChildClassDoesNotExist()
     {
         $this->expectException(\PHPUnit_Framework_AssertionFailedError::class);
 
         $this->assertExtends(Asset\ParentClass::class, 'foobarbaz');
     }
 
-    public function testAssertExtendsFailsWhenChildDoesNotExtendParent()
+    public function testAssertExtendsFailsWhenChildInterfaceDoesNotExist()
+    {
+        $this->expectException(\PHPUnit_Framework_AssertionFailedError::class);
+
+        $this->assertExtends(Asset\ParentInterface::class, 'foobarbaz');
+    }
+
+    public function testAssertExtendsFailsWhenChildClassDoesNotExtendParentClass()
     {
         $this->expectException(\PHPUnit_Framework_AssertionFailedError::class);
 
         $this->assertExtends(Asset\ChildClass::class, Asset\ParentClass::class);
     }
 
-    public function testAssertExtendsSucceedsWhenChildExtendsParent()
+    public function testAssertExtendsFailsWhenChildInterfaceDoesNotExtendParentInterface()
+    {
+        $this->expectException(\PHPUnit_Framework_AssertionFailedError::class);
+
+        $this->assertExtends(Asset\ChildInterface::class, Asset\ParentInterface::class);
+    }
+
+    public function testAssertExtendsSucceedsWhenChildClassExtendsParentClass()
     {
         $this->assertExtends(Asset\ParentClass::class, Asset\ChildClass::class);
+    }
+
+    public function testAssertExtendsSucceedsWhenChildInterfaceExtendsParentInterface()
+    {
+        $this->assertExtends(Asset\ParentInterface::class, Asset\ChildInterface::class);
     }
 
     public function testAssertImplementsFailsWhenInterfaceDoesNotExist()
