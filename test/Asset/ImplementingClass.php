@@ -9,6 +9,6 @@
 
 namespace Refinery29\Test\Util\Test\Asset;
 
-class Bar
+class ImplementingClass implements ImplementedInterface
 {
 }
