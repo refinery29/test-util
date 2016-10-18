@@ -19,7 +19,7 @@ class InvalidString extends AbstractDataProvider
             'null' => null,
             'boolean-true' => true,
             'boolean-false' => false,
-            'float' => $faker->randomFloat(),
+            'float' => $faker->randomFloat($faker->numberBetween(1)),
             'integer' => $faker->randomNumber(),
             'array' => $faker->words,
             'object' => new \stdClass(),
