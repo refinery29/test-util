@@ -19,7 +19,7 @@ class InvalidIntegerish extends AbstractDataProvider
             'null' => null,
             'boolean-true' => true,
             'boolean-false' => false,
-            'float' => $faker->randomFloat($faker->numberBetween(1)),
+            'float' => $faker->randomFloat(3),
             'string' => $faker->word,
             'array' => $faker->words,
             'object' => new \stdClass(),
