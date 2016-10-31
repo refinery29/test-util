@@ -88,6 +88,7 @@ of the data providers:
 If you need generic values, you can use one of the data providers
 
 * `Refinery29\Test\Util\DataProvider\Boolean`
+* `Refinery29\Test\Util\DataProvider\Falsy`
 * `Refinery29\Test\Util\DataProvider\Scalar`
 
 If you want to mix data providers above with some arbitrary values, use
