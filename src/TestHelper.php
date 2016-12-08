@@ -18,7 +18,7 @@ trait TestHelper
      *
      * @return Faker\Generator
      */
-    final protected static function getFaker($locale = 'en_US')
+    final protected function getFaker($locale = 'en_US')
     {
         static $fakers = [];
 
