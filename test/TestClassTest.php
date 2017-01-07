@@ -56,7 +56,7 @@ final class TestClassTest extends AbstractTestClassTestCase
         $directory = __DIR__ . '/Asset/Empty';
 
         $this->expectException(\PHPUnit_Framework_AssertionFailedError::class);
-        $this->expectExceptionMessage(sprintf(
+        $this->expectExceptionMessage(\sprintf(
             'Could not find any PHP files in directory "%s".',
             $directory
         ));
@@ -76,10 +76,10 @@ final class TestClassTest extends AbstractTestClassTestCase
         ];
 
         $this->expectException(\PHPUnit_Framework_AssertionFailedError::class);
-        $this->expectExceptionMessage(sprintf(
+        $this->expectExceptionMessage(\sprintf(
             'Could not find any PHP files in directory "%s" excluding "%s".',
             $directory,
-            implode('", "', $exclusions)
+            \implode('", "', $exclusions)
         ));
 
         $this->createTest(

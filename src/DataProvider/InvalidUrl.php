@@ -15,9 +15,9 @@ class InvalidUrl extends InvalidString
     {
         $faker = $this->getFaker();
 
-        return array_merge(parent::values(), [
+        return \array_merge(parent::values(), [
             'string-word-only' => $faker->word,
-            'string-path-only' => implode('/', $faker->words),
+            'string-path-only' => \implode('/', $faker->words),
         ]);
     }
 }

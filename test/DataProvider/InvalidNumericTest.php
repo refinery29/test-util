@@ -25,6 +25,6 @@ final class InvalidNumericTest extends AbstractTestCase
      */
     public function testIsNotNumeric($value)
     {
-        $this->assertFalse(is_numeric($value));
+        $this->assertFalse(\is_numeric($value));
     }
 }

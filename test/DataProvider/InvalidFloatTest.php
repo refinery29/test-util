@@ -25,6 +25,6 @@ final class InvalidFloatTest extends AbstractTestCase
      */
     public function testIsNotAFloat($value)
     {
-        $this->assertFalse(is_float($value));
+        $this->assertFalse(\is_float($value));
     }
 }

@@ -25,6 +25,6 @@ final class InvalidStringNotNullTest extends AbstractNotNullTestCase
      */
     public function testIsNotAString($value)
     {
-        $this->assertFalse(is_string($value));
+        $this->assertFalse(\is_string($value));
     }
 }

@@ -25,6 +25,6 @@ final class InvalidBooleanTest extends AbstractTestCase
      */
     public function testIsNotABoolean($value)
     {
-        $this->assertFalse(is_bool($value));
+        $this->assertFalse(\is_bool($value));
     }
 }

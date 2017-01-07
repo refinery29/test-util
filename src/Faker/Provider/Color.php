@@ -18,7 +18,7 @@ class Color
      */
     public static function hexColorWithAlpha()
     {
-        return '#' . str_pad(dechex(mt_rand(1, 4294967295)), 8, '0', STR_PAD_LEFT);
+        return '#' . str_pad(\dechex(\mt_rand(1, 4294967295)), 8, '0', STR_PAD_LEFT);
     }
 
     /**
@@ -26,6 +26,6 @@ class Color
      */
     public static function hexColorShort()
     {
-        return '#' . str_pad(dechex(mt_rand(1, 4095)), 3, '0', STR_PAD_LEFT);
+        return '#' . str_pad(\dechex(\mt_rand(1, 4095)), 3, '0', STR_PAD_LEFT);
     }
 }

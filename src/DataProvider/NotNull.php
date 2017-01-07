@@ -21,7 +21,7 @@ trait NotNull
      */
     public function notNull(array $values)
     {
-        return array_filter($values, function ($value) {
+        return \array_filter($values, function ($value) {
             return $value !== null;
         });
     }

@@ -25,6 +25,6 @@ final class InvalidIntegerTest extends AbstractTestCase
      */
     public function testIsNotAnInteger($value)
     {
-        $this->assertFalse(is_int($value));
+        $this->assertFalse(\is_int($value));
     }
 }
