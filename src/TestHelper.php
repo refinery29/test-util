@@ -22,11 +22,11 @@ trait TestHelper
     {
         static $fakers = [];
 
-        if (!is_string($locale)) {
+        if (!\is_string($locale)) {
             throw new \InvalidArgumentException('Locale should be a string');
         }
 
-        if (!array_key_exists($locale, $fakers)) {
+        if (!\array_key_exists($locale, $fakers)) {
             $faker = Factory::create($locale);
             $faker->addProvider(new Faker\Provider\Color());
             $faker->seed(9000);
@@ -62,20 +62,20 @@ trait TestHelper
          * This works around @link https://github.com/facebook/hhvm/issues/6954, otherwise we would just type-hint in
          * the method signature above.
          */
-        $dataProviders = array_map(function (DataProvider\DataProviderInterface $dataProvider) {
+        $dataProviders = \array_map(function (DataProvider\DataProviderInterface $dataProvider) {
             return $dataProvider;
         }, $dataProviders);
 
-        $values = array_reduce(
+        $values = \array_reduce(
             $dataProviders,
             function (array $carry, DataProvider\DataProviderInterface $dataProvider) {
                 $values = $dataProvider->values();
 
                 if ($values instanceof \Traversable) {
-                    $values = iterator_to_array($values);
+                    $values = \iterator_to_array($values);
                 }
 
-                return array_merge(
+                return \array_merge(
                     $carry,
                     $values
                 );
@@ -91,14 +91,14 @@ trait TestHelper
      */
     final protected function assertFinal($className)
     {
-        $this->assertTrue(class_exists($className), sprintf(
+        $this->assertTrue(\class_exists($className), \sprintf(
             'Failed to assert that class "%s" exists',
             $className
         ));
 
         $reflection = new \ReflectionClass($className);
 
-        $this->assertTrue($reflection->isFinal(), sprintf(
+        $this->assertTrue($reflection->isFinal(), \sprintf(
             'Failed to assert that "%s" is final',
             $className
         ));
@@ -110,19 +110,19 @@ trait TestHelper
      */
     final protected function assertExtends($parentName, $childName)
     {
-        $this->assertTrue(class_exists($parentName) || interface_exists($parentName), sprintf(
+        $this->assertTrue(\class_exists($parentName) || interface_exists($parentName), \sprintf(
             'Failed to assert that class or interface "%s" exists',
             $parentName
         ));
 
-        $this->assertTrue(class_exists($childName) || interface_exists($childName), sprintf(
+        $this->assertTrue(\class_exists($childName) || interface_exists($childName), \sprintf(
             'Failed to assert that class or interface "%s" exists',
             $childName
         ));
 
         $reflection = new \ReflectionClass($childName);
 
-        $this->assertTrue($reflection->isSubclassOf($parentName), sprintf(
+        $this->assertTrue($reflection->isSubclassOf($parentName), \sprintf(
             'Failed to assert that "%s" extends "%s"',
             $childName,
             $parentName
@@ -135,19 +135,19 @@ trait TestHelper
      */
     final protected function assertImplements($interfaceName, $className)
     {
-        $this->assertTrue(interface_exists($interfaceName), sprintf(
+        $this->assertTrue(\interface_exists($interfaceName), \sprintf(
             'Failed to assert that interface "%s" exists',
             $interfaceName
         ));
 
-        $this->assertTrue(class_exists($className), sprintf(
+        $this->assertTrue(\class_exists($className), \sprintf(
             'Failed to assert that class "%s" exists',
             $className
         ));
 
         $reflection = new \ReflectionClass($className);
 
-        $this->assertTrue($reflection->implementsInterface($interfaceName), sprintf(
+        $this->assertTrue($reflection->implementsInterface($interfaceName), \sprintf(
             'Failed to assert that "%s" implements "%s"',
             $className,
             $interfaceName

@@ -25,6 +25,6 @@ final class BooleanTest extends AbstractTestCase
      */
     public function testIsABoolean($value)
     {
-        $this->assertTrue(is_bool($value));
+        $this->assertTrue(\is_bool($value));
     }
 }

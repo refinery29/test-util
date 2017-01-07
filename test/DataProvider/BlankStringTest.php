@@ -26,6 +26,6 @@ final class BlankStringTest extends AbstractTestCase
     public function testIsBlankString($value)
     {
         $this->assertInternalType('string', $value);
-        $this->assertSame('', trim($value));
+        $this->assertSame('', \trim($value));
     }
 }

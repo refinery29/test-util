@@ -107,7 +107,7 @@ final class TestHelperTest extends \PHPUnit_Framework_TestCase
     {
         $reflection = new \ReflectionClass(Provider\Color::class);
 
-        return $this->provideData(array_map(function (\ReflectionMethod $method) {
+        return $this->provideData(\array_map(function (\ReflectionMethod $method) {
             return $method->getName();
         }, $reflection->getMethods()));
     }
@@ -116,7 +116,7 @@ final class TestHelperTest extends \PHPUnit_Framework_TestCase
     {
         $faker = $this->getFaker();
 
-        $values = array_combine(
+        $values = \array_combine(
             $faker->unique()->words(5),
             $faker->unique()->words(5)
         );
@@ -130,7 +130,7 @@ final class TestHelperTest extends \PHPUnit_Framework_TestCase
     {
         $faker = $this->getFaker();
 
-        $values = array_combine(
+        $values = \array_combine(
             $faker->unique()->words(5),
             $faker->unique()->words(5)
         );
@@ -146,7 +146,7 @@ final class TestHelperTest extends \PHPUnit_Framework_TestCase
     {
         $faker = $this->getFaker();
 
-        $values = array_combine(
+        $values = \array_combine(
             $faker->unique()->words(5),
             $faker->unique()->words(5)
         );
@@ -162,12 +162,12 @@ final class TestHelperTest extends \PHPUnit_Framework_TestCase
     {
         $faker = $this->getFaker();
 
-        $valuesOne = array_combine(
+        $valuesOne = \array_combine(
             $faker->unique()->words(5),
             $faker->unique()->words(5)
         );
 
-        $valuesTwo = array_combine(
+        $valuesTwo = \array_combine(
             $faker->unique()->words(5),
             $faker->unique()->words(5)
         );
@@ -177,7 +177,7 @@ final class TestHelperTest extends \PHPUnit_Framework_TestCase
             new DataProviderFake($this->traversableFrom($valuesTwo))
         );
 
-        $values = array_merge(
+        $values = \array_merge(
             $valuesOne,
             $valuesTwo
         );
@@ -290,13 +290,13 @@ final class TestHelperTest extends \PHPUnit_Framework_TestCase
     {
         $this->assertInstanceOf(\Traversable::class, $generator);
 
-        $expected = array_map(function ($value, $key) {
+        $expected = \array_map(function ($value, $key) {
             return [
                 $key => $value,
             ];
-        }, array_values($values), array_keys($values));
+        }, \array_values($values), \array_keys($values));
 
-        $this->assertSame($expected, iterator_to_array($generator));
+        $this->assertSame($expected, \iterator_to_array($generator));
     }
 
     /**

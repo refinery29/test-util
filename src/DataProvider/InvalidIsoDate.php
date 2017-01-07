@@ -17,7 +17,7 @@ class InvalidIsoDate extends InvalidString
 
         $date = $faker->dateTime;
 
-        return array_merge(parent::values(), [
+        return \array_merge(parent::values(), [
             'string' => $faker->word,
             DATE_ISO8601 => $date->format(DATE_ISO8601),
             DATE_COOKIE => $date->format(DATE_COOKIE),

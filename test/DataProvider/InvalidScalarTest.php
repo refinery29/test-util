@@ -25,6 +25,6 @@ final class InvalidScalarTest extends AbstractTestCase
      */
     public function testIsNotAScalar($value)
     {
-        $this->assertFalse(is_scalar($value));
+        $this->assertFalse(\is_scalar($value));
     }
 }

@@ -28,7 +28,7 @@ abstract class AbstractTestClassTestCase extends \PHPUnit_Framework_TestCase
     {
         Assertion::directory($directory);
         Assertion::string($psr4Prefix);
-        Assertion::allDirectory(array_map(function ($excludeDirectory) use ($directory) {
+        Assertion::allDirectory(\array_map(function ($excludeDirectory) use ($directory) {
             return $directory . DIRECTORY_SEPARATOR . $excludeDirectory;
         }, $excludeDirectories));
 
@@ -39,31 +39,31 @@ abstract class AbstractTestClassTestCase extends \PHPUnit_Framework_TestCase
             ->exclude($excludeDirectories);
 
         $exclusion = '';
-        if (count($excludeDirectories)) {
-            $exclusion = sprintf(
+        if (\count($excludeDirectories)) {
+            $exclusion = \sprintf(
                 ' excluding "%s"',
-                implode('", "', $excludeDirectories)
+                \implode('", "', $excludeDirectories)
             );
         }
 
-        $files = iterator_to_array(
+        $files = \iterator_to_array(
             $finder,
             false
         );
 
-        $this->assertGreaterThan(0, count($files), sprintf(
+        $this->assertGreaterThan(0, \count($files), \sprintf(
             'Could not find any PHP files in directory "%s"%s.',
             $directory,
             $exclusion
         ));
 
-        $psr4Prefix = rtrim($psr4Prefix, '\\');
+        $psr4Prefix = \rtrim($psr4Prefix, '\\');
 
-        array_walk($files, function (Finder\SplFileInfo $file) use ($psr4Prefix) {
-            $className = sprintf(
+        \array_walk($files, function (Finder\SplFileInfo $file) use ($psr4Prefix) {
+            $className = \sprintf(
                 '%s\%s%s%s',
                 $psr4Prefix,
-                strtr($file->getRelativePath(), DIRECTORY_SEPARATOR, '\\'),
+                \strtr($file->getRelativePath(), DIRECTORY_SEPARATOR, '\\'),
                 $file->getRelativePath() ? '\\' : '',
                 $file->getBasename('.' . $file->getExtension())
             );
@@ -74,7 +74,7 @@ abstract class AbstractTestClassTestCase extends \PHPUnit_Framework_TestCase
                 return;
             }
 
-            $this->assertTrue($reflection->isAbstract() || $reflection->isFinal(), sprintf(
+            $this->assertTrue($reflection->isAbstract() || $reflection->isFinal(), \sprintf(
                 'Failed to assert that the test class "%s" is abstract or final.',
                 $className
             ));
