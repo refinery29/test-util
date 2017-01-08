@@ -9,7 +9,6 @@
 
 namespace Refinery29\Test\Util;
 
-use Assert\Assertion;
 use Symfony\Component\Finder;
 
 /**
@@ -26,11 +25,28 @@ abstract class AbstractTestClassTestCase extends \PHPUnit_Framework_TestCase
      */
     final protected function createTest($directory, $psr4Prefix, array $excludeDirectories = [])
     {
-        Assertion::directory($directory);
-        Assertion::string($psr4Prefix);
-        Assertion::allDirectory(\array_map(function ($excludeDirectory) use ($directory) {
-            return $directory . DIRECTORY_SEPARATOR . $excludeDirectory;
-        }, $excludeDirectories));
+        if (!\is_string($directory) || !\is_dir($directory)) {
+            throw new \InvalidArgumentException(\sprintf(
+                'Directory needs to point to an existing directory, got "%s".',
+                \is_object($directory) ? \get_class($directory) : \gettype($directory)
+            ));
+        }
+
+        if (!\is_string($psr4Prefix)) {
+            throw new \InvalidArgumentException(\sprintf(
+                'PSR-4 prefix needs to be a string, got "%s".',
+                \is_object($directory) ? \get_class($directory) : \gettype($directory)
+            ));
+        }
+
+        \array_walk($excludeDirectories, function ($excludeDirectory) use ($directory) {
+            if (!\is_string($excludeDirectory) || !\is_dir($directory . DIRECTORY_SEPARATOR . $excludeDirectory)) {
+                throw new \InvalidArgumentException(\sprintf(
+                    'Exclude directory needs to point to an existing directory, got "%s".',
+                    \is_object($excludeDirectory) ? \get_class($excludeDirectory) : \gettype($excludeDirectory)
+                ));
+            }
+        });
 
         $finder = Finder\Finder::create()
             ->files()
