@@ -1,3 +1,5 @@
+.PHONY: composer coverage cs it test
+
 it: cs test
 
 composer:
