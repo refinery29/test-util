@@ -9,7 +9,7 @@
 
 namespace Refinery29\Test\Util;
 
-use Symfony\Component\Finder;
+use Zend\File;
 
 /**
  * @see https://github.com/FriendsOfPHP/PHP-CS-Fixer/blob/v2.0.0/tests/ProjectCodeTest.php
@@ -17,42 +17,72 @@ use Symfony\Component\Finder;
 abstract class AbstractTestClassTestCase extends \PHPUnit_Framework_TestCase
 {
     /**
-     * @param string   $directory
-     * @param string   $psr4Prefix
+     * @param string   $path
      * @param string[] $excludeDirectories
      *
      * @throws \InvalidArgumentException
      */
-    final protected function createTest($directory, $psr4Prefix, array $excludeDirectories = [])
+    final protected function createTest($path, array $excludeDirectories = [])
     {
-        if (!\is_string($directory) || !\is_dir($directory)) {
+        if (!\is_string($path)) {
             throw new \InvalidArgumentException(\sprintf(
-                'Directory needs to point to an existing directory, got "%s".',
-                \is_object($directory) ? \get_class($directory) : \gettype($directory)
+                'Path needs to be specified as a string, got "%s".',
+                \is_object($path) ? \get_class($path) : \gettype($path)
             ));
         }
 
-        if (!\is_string($psr4Prefix)) {
+        if (!\is_dir($path)) {
             throw new \InvalidArgumentException(\sprintf(
-                'PSR-4 prefix needs to be a string, got "%s".',
-                \is_object($directory) ? \get_class($directory) : \gettype($directory)
+                'Path needs to be specified as an existing directory, got "%s".',
+                $path
             ));
         }
 
-        \array_walk($excludeDirectories, function ($excludeDirectory) use ($directory) {
-            if (!\is_string($excludeDirectory) || !\is_dir($directory . DIRECTORY_SEPARATOR . $excludeDirectory)) {
+        \array_walk($excludeDirectories, function ($excludeDirectory) use ($path) {
+            if (!\is_string($excludeDirectory)) {
                 throw new \InvalidArgumentException(\sprintf(
-                    'Exclude directory needs to point to an existing directory, got "%s".',
+                    'Exclude directory needs to be specified as a string, got "%s".',
                     \is_object($excludeDirectory) ? \get_class($excludeDirectory) : \gettype($excludeDirectory)
+                ));
+            }
+
+            if (!\is_dir($path . DIRECTORY_SEPARATOR . $excludeDirectory)) {
+                throw new \InvalidArgumentException(\sprintf(
+                    'Exclude directory needs to point to an existing directory within "%s", got "%s".',
+                    $path,
+                    $excludeDirectory
                 ));
             }
         });
 
-        $finder = Finder\Finder::create()
-            ->files()
-            ->name('*.php')
-            ->in($directory)
-            ->exclude($excludeDirectories);
+        $classFileLocator = new File\ClassFileLocator($path);
+
+        $files = iterator_to_array(
+            $classFileLocator,
+            false
+        );
+
+        $excludePaths = \array_map(function ($excludeDirectory) use ($path) {
+            return \realpath($path . DIRECTORY_SEPARATOR . $excludeDirectory);
+        }, $excludeDirectories);
+
+        $classNames = \array_reduce(
+            $files,
+            function (array $classNames, File\PhpClassFile $file) use ($excludePaths) {
+                $realPath = $file->getRealPath();
+                foreach ($excludePaths as $excludePath) {
+                    if (\strpos($realPath, $excludePath) === 0) {
+                        return $classNames;
+                    }
+                }
+
+                return array_merge(
+                    $classNames,
+                    $file->getClasses()
+                );
+            },
+            []
+        );
 
         $exclusion = '';
         if (\count($excludeDirectories)) {
@@ -62,38 +92,29 @@ abstract class AbstractTestClassTestCase extends \PHPUnit_Framework_TestCase
             );
         }
 
-        $files = \iterator_to_array(
-            $finder,
-            false
-        );
-
-        $this->assertGreaterThan(0, \count($files), \sprintf(
-            'Could not find any PHP files in directory "%s"%s.',
-            $directory,
+        $this->assertGreaterThan(0, \count($classNames), \sprintf(
+            'Could not find any relevant PHP files in path "%s"%s.',
+            $path,
             $exclusion
         ));
 
-        $psr4Prefix = \rtrim($psr4Prefix, '\\');
-
-        \array_walk($files, function (Finder\SplFileInfo $file) use ($psr4Prefix) {
-            $className = \sprintf(
-                '%s\%s%s%s',
-                $psr4Prefix,
-                \strtr($file->getRelativePath(), DIRECTORY_SEPARATOR, '\\'),
-                $file->getRelativePath() ? '\\' : '',
-                $file->getBasename('.' . $file->getExtension())
-            );
-
+        $neitherAbstractNorFinal = \array_filter($classNames, function ($className) {
             $reflection = new \ReflectionClass($className);
 
-            if ($reflection->isTrait() || $reflection->isInterface()) {
-                return;
+            if ($reflection->isTrait()
+                || $reflection->isInterface()
+                || $reflection->isAbstract()
+                || $reflection->isFinal()
+            ) {
+                return false;
             }
 
-            $this->assertTrue($reflection->isAbstract() || $reflection->isFinal(), \sprintf(
-                'Failed to assert that the test class "%s" is abstract or final.',
-                $className
-            ));
+            return true;
         });
+
+        $this->assertEmpty($neitherAbstractNorFinal, \sprintf(
+            'Failed to assert that "%s" are abstract or final.',
+            \implode('", "', $neitherAbstractNorFinal)
+        ));
     }
 }

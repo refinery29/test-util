@@ -7,7 +7,7 @@
  * the LICENSE file that was distributed with this source code.
  */
 
-namespace Refinery29\Test\Util\Test\Asset\HalfEmpty\Bar;
+namespace Refinery29\Test\Util\Test\Asset\NotEmpty\Foo;
 
 class Bar
 {

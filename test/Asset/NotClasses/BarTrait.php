@@ -9,6 +9,6 @@
 
 namespace Refinery29\Test\Util\Test\Asset\NotClasses;
 
-trait Bars
+trait BarTrait
 {
 }
