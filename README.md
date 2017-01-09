@@ -36,6 +36,7 @@ final class WebsiteTest extends \PHPUnit_Framework_TestCase
 
 The test helper provides a few assertions:
 
+* `assertClassesAreAbstractOrFinal($path, array $excludeDirectories = [])`
 * `assertFinal($className)`
 * `assertExtends($parentClassName, $className)`
 * `assertImplements($interfaceName, $className)`
