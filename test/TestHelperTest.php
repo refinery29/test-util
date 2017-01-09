@@ -283,6 +283,110 @@ final class TestHelperTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * @dataProvider \Refinery29\Test\Util\DataProvider\InvalidString::data()
+     *
+     * @param mixed $path
+     */
+    public function testAssertClassesAreAbstractOrFinalRejectsInvalidPath($path)
+    {
+        $this->expectException(\InvalidArgumentException::class);
+        $this->expectExceptionMessage(\sprintf(
+            'Path needs to be specified as a string, got "%s".',
+            \is_object($path) ? \get_class($path) : \gettype($path)
+        ));
+
+        $this->assertClassesAreAbstractOrFinal($path);
+    }
+
+    public function testAssertClassesAreAbstractOrFinalRejectsNonExistentPath()
+    {
+        $path = __DIR__ . '/NonExistent';
+
+        $this->expectException(\InvalidArgumentException::class);
+        $this->expectExceptionMessage(\sprintf(
+            'Path needs to be specified as an existing directory, got "%s".',
+            $path
+        ));
+
+        $this->assertClassesAreAbstractOrFinal($path);
+    }
+
+    /**
+     * @dataProvider \Refinery29\Test\Util\DataProvider\InvalidString::data()
+     *
+     * @param mixed $excludeDirectory
+     */
+    public function testAssertClassesAreAbstractOrFinalRejectsInvalidExcludeDirectory($excludeDirectory)
+    {
+        $this->expectException(\InvalidArgumentException::class);
+        $this->expectExceptionMessage(\sprintf(
+            'Exclude directory needs to be specified as a string, got "%s".',
+            \is_object($excludeDirectory) ? \get_class($excludeDirectory) : \gettype($excludeDirectory)
+        ));
+
+        $this->assertClassesAreAbstractOrFinal(__DIR__, [
+            $excludeDirectory,
+        ]);
+    }
+
+    public function testAssertClassesAreAbstractOrFinalRejectsNonExistentExcludeDirectory()
+    {
+        $path = __DIR__;
+        $excludeDirectory = 'NonExistent';
+
+        $this->expectException(\InvalidArgumentException::class);
+        $this->expectExceptionMessage(\sprintf(
+            'Exclude directory needs to point to an existing directory within "%s", got "%s".',
+            $path,
+            $excludeDirectory
+        ));
+
+        $this->assertClassesAreAbstractOrFinal(
+            $path, [
+            $excludeDirectory,
+        ]);
+    }
+
+    public function testAssertClassesAreAbstractOrFinalFailsIfNoRelevantPhpFilesHaveBeenFound()
+    {
+        $path = __DIR__ . '/Asset/Empty';
+
+        $this->expectException(\PHPUnit_Framework_AssertionFailedError::class);
+        $this->expectExceptionMessage(\sprintf(
+            'Could not find any relevant PHP files in path "%s".',
+            $path
+        ));
+
+        $this->assertClassesAreAbstractOrFinal($path);
+    }
+
+    public function testAssertClassesAreAbstractOrFinalWithExclusionsFailsIfNoRelevantPhpFilesHaveBeenFound()
+    {
+        $path = __DIR__ . '/Asset/NotEmpty';
+        $excludeDirectories = [
+            'Bar',
+            'Foo',
+        ];
+
+        $this->expectException(\PHPUnit_Framework_AssertionFailedError::class);
+        $this->expectExceptionMessage(\sprintf(
+            'Could not find any relevant PHP files in path "%s" excluding "%s".',
+            $path,
+            \implode('", "', $excludeDirectories)
+        ));
+
+        $this->assertClassesAreAbstractOrFinal(
+            $path,
+            $excludeDirectories
+        );
+    }
+
+    public function testAssertClassesAreAbstractOrFinalIgnoresInterfacesAndTraits()
+    {
+        $this->assertClassesAreAbstractOrFinal(__DIR__ . '/Asset/NotClasses');
+    }
+
+    /**
      * @param $generator
      * @param $values
      */
