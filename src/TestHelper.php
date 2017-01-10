@@ -202,7 +202,7 @@ trait TestHelper
         );
 
         $excludePaths = \array_map(function ($excludeDirectory) use ($path) {
-            return \realpath($path . DIRECTORY_SEPARATOR . $excludeDirectory);
+            return \realpath($path . DIRECTORY_SEPARATOR . $excludeDirectory) . DIRECTORY_SEPARATOR;
         }, $excludeDirectories);
 
         $classNames = \array_reduce(

@@ -381,6 +381,30 @@ final class TestHelperTest extends \PHPUnit_Framework_TestCase
         );
     }
 
+    public function testAssertClassesAreAbstractOrFinalWithExclusionsHonorsDirectoriesOnly()
+    {
+        $path = __DIR__ . '/Asset/WithExclude';
+        $excludeDirectories = [
+            'Exclude',
+        ];
+
+        $classNamesNeitherAbstractNorFinal = [
+            Asset\WithExclude\Exclude::class,
+            Asset\WithExclude\ExcludeNot\Bar::class,
+        ];
+
+        $this->expectException(\PHPUnit_Framework_AssertionFailedError::class);
+        $this->expectExceptionMessage(\sprintf(
+            'Failed to assert that the following classes are abstract or final: %s',
+            PHP_EOL . ' - ' . \implode(PHP_EOL . ' - ', $classNamesNeitherAbstractNorFinal)
+        ));
+
+        $this->assertClassesAreAbstractOrFinal(
+            $path,
+            $excludeDirectories
+        );
+    }
+
     public function testAssertClassesAreAbstractOrFinalIgnoresInterfacesAndTraits()
     {
         $this->assertClassesAreAbstractOrFinal(__DIR__ . '/Asset/NotClasses');
