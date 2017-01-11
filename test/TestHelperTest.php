@@ -411,6 +411,14 @@ final class TestHelperTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * @requires PHP 7.1
+     */
+    public function testAssertClassesAreAbstractOrFinalIgnoresAnonymousClasses()
+    {
+        $this->assertClassesAreAbstractOrFinal(__DIR__ . '/Asset/AnonymousClasses');
+    }
+
+    /**
      * @param $generator
      * @param $values
      */
