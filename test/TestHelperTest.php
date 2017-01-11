@@ -419,10 +419,10 @@ final class TestHelperTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @param $generator
-     * @param $values
+     * @param array                   $values
+     * @param \Generator|\Traversable $generator
      */
-    private function assertGeneratorYieldsValues($values, $generator)
+    private function assertGeneratorYieldsValues(array $values, \Generator $generator)
     {
         $this->assertInstanceOf(\Traversable::class, $generator);
 
