@@ -8,7 +8,9 @@ the LICENSE file that was distributed with this source code.
 EOF;
 
 $config = new Refinery29\CS\Config\Refinery29($header);
-$config->getFinder()->in(__DIR__);
+$config->getFinder()
+    ->notPath('AnonymousClasses')
+    ->in(__DIR__);
 
 $cacheDir = getenv('TRAVIS') ? getenv('HOME') . '/.php-cs-fixer' : __DIR__;
 
