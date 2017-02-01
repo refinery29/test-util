@@ -163,6 +163,28 @@ trait TestHelper
      */
     final protected function assertClassesAreAbstractOrFinal($path, array $excludeDirectories = [])
     {
+        $this->assertClassesSatisfy(
+            function (\ReflectionClass $reflection) {
+                if ($reflection->isAbstract() || $reflection->isInterface() || $reflection->isTrait()) {
+                    return true;
+                }
+
+                return $reflection->isFinal();
+            },
+            $path,
+            $excludeDirectories,
+            'Failed to assert that the following classes are abstract or final: %s'
+        );
+    }
+
+    /**
+     * @param callable $specification
+     * @param string   $path
+     * @param array    $excludeDirectories
+     * @param string   $message
+     */
+    public function assertClassesSatisfy(callable $specification, $path, array $excludeDirectories = [], $message = null)
+    {
         if (!\is_string($path)) {
             throw new \InvalidArgumentException(\sprintf(
                 'Path needs to be specified as a string, got "%s".',
@@ -232,23 +254,22 @@ trait TestHelper
             )
         ));
 
-        $classNamesNeitherAbstractNorFinal = \array_filter($classNames, function ($className) {
+        $classNamesNotSatisfyingSpecification = \array_filter($classNames, function ($className) use ($specification) {
             $reflection = new \ReflectionClass($className);
 
-            if ($reflection->isTrait()
-                || $reflection->isInterface()
-                || $reflection->isAbstract()
-                || $reflection->isFinal()
-            ) {
-                return false;
-            }
+            $isSatisfied = \call_user_func(
+                $specification,
+                $reflection
+            );
 
-            return true;
+            return false === $isSatisfied;
         });
 
-        $this->assertEmpty($classNamesNeitherAbstractNorFinal, \sprintf(
-            'Failed to assert that the following classes are abstract or final: %s',
-            PHP_EOL . ' - ' . \implode(PHP_EOL . ' - ', $classNamesNeitherAbstractNorFinal)
+        $message = $message ?: 'Failed to assert that the following classes satisfy the specification: %s';
+
+        $this->assertEmpty($classNamesNotSatisfyingSpecification, \sprintf(
+            $message,
+            PHP_EOL . ' - ' . \implode(PHP_EOL . ' - ', $classNamesNotSatisfyingSpecification)
         ));
     }
 }

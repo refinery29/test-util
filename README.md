@@ -37,9 +37,27 @@ final class WebsiteTest extends \PHPUnit_Framework_TestCase
 The test helper provides a few assertions:
 
 * `assertClassesAreAbstractOrFinal($path, array $excludeDirectories = [])`
+* `assertClassesSatisfy(callable $specification, $path, array $excludeDirectories = [])`
 * `assertFinal($className)`
 * `assertExtends($parentClassName, $className)`
 * `assertImplements($interfaceName, $className)`
+
+##### `assertClassesSatisfy(callable $specification, $path, array $excludeDirectories = [])`
+
+The callable will be passed in an instance of `ReflectionClass` which can
+be used for further introspection, and should return a `bool`, indicating
+that the specification is satisfied.
+
+For example:
+
+```php
+$this->assertClassesSatisfy(
+    function (\ReflectionClass $reflection) {
+        return false !== \strpos('MySmallClass', $reflection->getName());
+    },
+    __DIR__
+);
+```
 
 #### Generating fake data using Faker
 
