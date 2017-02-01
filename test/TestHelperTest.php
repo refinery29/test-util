@@ -11,7 +11,20 @@ namespace Refinery29\Test\Util\Test;
 
 use Faker\Generator;
 use Refinery29\Test\Util\Faker\Provider;
+use Refinery29\Test\Util\Test\Asset\WithExclude\ExcludeNot\Bar;
 use Refinery29\Test\Util\TestHelper;
+
+/**
+ * @param \ReflectionClass $reflection
+ *
+ * @return bool
+ */
+function satisfy(\ReflectionClass $reflection)
+{
+    $name = $reflection->getName();
+
+    return $name === Asset\Satisfy\Foo::class;
+}
 
 final class TestHelperTest extends \PHPUnit_Framework_TestCase
 {
@@ -416,6 +429,205 @@ final class TestHelperTest extends \PHPUnit_Framework_TestCase
     public function testAssertClassesAreAbstractOrFinalIgnoresAnonymousClasses()
     {
         $this->assertClassesAreAbstractOrFinal(__DIR__ . '/Asset/AnonymousClasses');
+    }
+
+    /**
+     * @dataProvider \Refinery29\Test\Util\DataProvider\InvalidString::data()
+     *
+     * @param mixed $path
+     */
+    public function testAssertClassesSatisfyRejectsInvalidPath($path)
+    {
+        $this->expectException(\InvalidArgumentException::class);
+        $this->expectExceptionMessage(\sprintf(
+            'Path needs to be specified as a string, got "%s".',
+            \is_object($path) ? \get_class($path) : \gettype($path)
+        ));
+
+        $this->assertClassesSatisfy(
+            function () {
+                return true;
+            },
+            $path
+        );
+    }
+
+    public function testAssertClassesSatisfyRejectsNonExistentPath()
+    {
+        $path = __DIR__ . '/NonExistent';
+
+        $this->expectException(\InvalidArgumentException::class);
+        $this->expectExceptionMessage(\sprintf(
+            'Path needs to be specified as an existing directory, got "%s".',
+            $path
+        ));
+
+        $this->assertClassesSatisfy(
+            function () {
+                return true;
+            },
+            $path
+        );
+    }
+
+    /**
+     * @dataProvider \Refinery29\Test\Util\DataProvider\InvalidString::data()
+     *
+     * @param mixed $excludeDirectory
+     */
+    public function testAssertSatisfyRejectsInvalidExcludeDirectory($excludeDirectory)
+    {
+        $this->expectException(\InvalidArgumentException::class);
+        $this->expectExceptionMessage(\sprintf(
+            'Exclude directory needs to be specified as a string, got "%s".',
+            \is_object($excludeDirectory) ? \get_class($excludeDirectory) : \gettype($excludeDirectory)
+        ));
+
+        $this->assertClassesSatisfy(
+            function () {
+                return true;
+            },
+            __DIR__,
+            [
+                $excludeDirectory,
+            ]
+        );
+    }
+
+    public function testAssertClassesSatisfyRejectsNonExistentExcludeDirectory()
+    {
+        $path = __DIR__;
+        $excludeDirectory = 'NonExistent';
+
+        $this->expectException(\InvalidArgumentException::class);
+        $this->expectExceptionMessage(\sprintf(
+            'Exclude directory needs to point to an existing directory within "%s", got "%s".',
+            $path,
+            $excludeDirectory
+        ));
+
+        $this->assertClassesSatisfy(
+            function () {
+                return true;
+            },
+            $path,
+            [
+                $excludeDirectory,
+            ]
+        );
+    }
+
+    public function testAssertClassesSatisfyFailsIfNoRelevantPhpFilesHaveBeenFound()
+    {
+        $path = __DIR__ . '/Asset/Empty';
+
+        $this->expectException(\PHPUnit_Framework_AssertionFailedError::class);
+        $this->expectExceptionMessage(\sprintf(
+            'Could not find any relevant PHP files in path "%s".',
+            $path
+        ));
+
+        $this->assertClassesSatisfy(
+            function () {
+                return true;
+            },
+            $path
+        );
+    }
+
+    public function testAssertClassesSatisfyWithExclusionsFailsIfNoRelevantPhpFilesHaveBeenFound()
+    {
+        $path = __DIR__ . '/Asset/NotEmpty';
+        $excludeDirectories = [
+            'Bar',
+            'Foo',
+        ];
+
+        $this->expectException(\PHPUnit_Framework_AssertionFailedError::class);
+        $this->expectExceptionMessage(\sprintf(
+            'Could not find any relevant PHP files in path "%s" excluding "%s".',
+            $path,
+            \implode('", "', $excludeDirectories)
+        ));
+
+        $this->assertClassesSatisfy(
+            function () {
+                return true;
+            },
+            $path,
+            $excludeDirectories
+        );
+    }
+
+    public function testAssertClassesSatisfyWithExclusionsHonorsDirectoriesOnly()
+    {
+        $path = __DIR__ . '/Asset/WithExclude';
+        $excludeDirectories = [
+            'Exclude',
+        ];
+
+        $this->assertClassesSatisfy(
+            function (\ReflectionClass $reflection) {
+                $classNames = [
+                    Asset\WithExclude\ExcludeNot\Bar::class,
+                    Asset\WithExclude\Exclude::class,
+                ];
+
+                $name = $reflection->getName();
+
+                return \in_array(
+                    $name,
+                    $classNames,
+                    true
+                );
+            },
+            $path,
+            $excludeDirectories
+        );
+    }
+
+    /**
+     * @dataProvider providerAssertClassesSatisfyAcceptsCallable
+     *
+     * @param callable $callable
+     */
+    public function testAssertClassesSatisfyAcceptsCallable(callable $callable)
+    {
+        $this->assertClassesSatisfy(
+            $callable,
+            __DIR__ . '/Asset/Satisfy'
+        );
+    }
+
+    /**
+     * @return \Generator
+     */
+    public function providerAssertClassesSatisfyAcceptsCallable()
+    {
+        return $this->provideData([
+            'function' => __NAMESPACE__ . '\satisfy',
+            'anonymous-function' => function (\ReflectionClass $reflection) {
+                return satisfy($reflection);
+            },
+            'static-function' => [
+                self::class,
+                'satisfy',
+            ],
+            'instance-function' => [
+                $this,
+                'satisfy',
+            ],
+        ]);
+    }
+
+    /**
+     * @param \ReflectionClass $reflection
+     *
+     * @return bool
+     */
+    public static function satisfy(\ReflectionClass $reflection)
+    {
+        return satisfy($reflection);
     }
 
     /**
