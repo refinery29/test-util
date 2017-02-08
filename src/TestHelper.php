@@ -173,7 +173,7 @@ trait TestHelper
             },
             $path,
             $excludeDirectories,
-            'Failed to assert that the following classes are abstract or final: %s'
+            'Failed to assert that classes are abstract or final.'
         );
     }
 
@@ -265,11 +265,11 @@ trait TestHelper
             return false === $isSatisfied;
         });
 
-        $message = $message ?: 'Failed to assert that the following classes satisfy the specification: %s';
+        $message = $message ?: 'Failed to assert that classes satisfy the specification.';
 
-        $this->assertEmpty($classNamesNotSatisfyingSpecification, \sprintf(
-            $message,
-            PHP_EOL . ' - ' . \implode(PHP_EOL . ' - ', $classNamesNotSatisfyingSpecification)
+        $this->assertEmpty(
+            $classNamesNotSatisfyingSpecification,
+            $message . PHP_EOL . ' - ' . \implode(PHP_EOL . ' - ', $classNamesNotSatisfyingSpecification
         ));
     }
 }

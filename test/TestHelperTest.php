@@ -408,7 +408,7 @@ final class TestHelperTest extends \PHPUnit_Framework_TestCase
 
         $this->expectException(\PHPUnit_Framework_AssertionFailedError::class);
         $this->expectExceptionMessage(\sprintf(
-            'Failed to assert that the following classes are abstract or final: %s',
+            'Failed to assert that classes are abstract or final.%s',
             PHP_EOL . ' - ' . \implode(PHP_EOL . ' - ', $classNamesNeitherAbstractNorFinal)
         ));
 
@@ -628,6 +628,27 @@ final class TestHelperTest extends \PHPUnit_Framework_TestCase
     public static function satisfy(\ReflectionClass $reflection)
     {
         return satisfy($reflection);
+    }
+
+    public function testAssertClassesSatisfyAcceptsMessage()
+    {
+        $message = 'We do not like these classes.';
+
+        $classNames = [
+            Asset\Message\Foo::class,
+        ];
+
+        $this->expectException(\PHPUnit_Framework_AssertionFailedError::class);
+        $this->expectExceptionMessage($message . PHP_EOL . ' - ' . \implode(PHP_EOL . ' - ', $classNames));
+
+        $this->assertClassesSatisfy(
+            function () {
+                return false;
+            },
+            __DIR__ . '/Asset/Message',
+            [],
+            $message
+        );
     }
 
     /**
