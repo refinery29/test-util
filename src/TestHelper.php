@@ -111,12 +111,12 @@ trait TestHelper
      */
     final protected function assertExtends($parentName, $childName)
     {
-        $this->assertTrue(\class_exists($parentName) || interface_exists($parentName), \sprintf(
+        $this->assertTrue(\class_exists($parentName) || \interface_exists($parentName), \sprintf(
             'Failed to assert that class or interface "%s" exists',
             $parentName
         ));
 
-        $this->assertTrue(\class_exists($childName) || interface_exists($childName), \sprintf(
+        $this->assertTrue(\class_exists($childName) || \interface_exists($childName), \sprintf(
             'Failed to assert that class or interface "%s" exists',
             $childName
         ));
@@ -237,7 +237,7 @@ trait TestHelper
                     }
                 }
 
-                return array_merge(
+                return \array_merge(
                     $classNames,
                     $file->getClasses()
                 );
