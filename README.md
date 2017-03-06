@@ -4,6 +4,8 @@
 [![Code Climate](https://codeclimate.com/github/refinery29/test-util/badges/gpa.svg)](https://codeclimate.com/github/refinery29/test-util)
 [![Test Coverage](https://codeclimate.com/github/refinery29/test-util/badges/coverage.svg)](https://codeclimate.com/github/refinery29/test-util/coverage)
 [![Issue Count](https://codeclimate.com/github/refinery29/test-util/badges/issue_count.svg)](https://codeclimate.com/github/refinery29/test-util)
+[![Latest Stable Version](https://poser.pugx.org/refinery29/test-util/v/stable)](https://packagist.org/packages/refinery29/test-util)
+[![Total Downloads](https://poser.pugx.org/refinery29/test-util/downloads)](https://packagist.org/packages/refinery29/test-util)
 
 Provides a test helper, generic data providers, and assertions.
 
@@ -79,7 +81,7 @@ Quickly provide data from multiple concrete data providers using
 
 ### Data Providers
 
-If you need to assert that invalid values are rejected, you can use one 
+If you need to assert that invalid values are rejected, you can use one
 of the data providers:
 
 * `Refinery29\Test\Util\DataProvider\BlankString`
@@ -129,7 +131,7 @@ use Refinery29\Test\Util\TestHelper;
 final class WebsiteTest extends \PHPUnit_Framework_TestCase
 {
     use TestHelper;
-    
+
     /**
      * @dataProvider providerInvalidTitle
      * 
