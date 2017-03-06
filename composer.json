@@ -30,7 +30,7 @@
     },
     "require-dev": {
         "beberlei/assert": "^2.7.1",
-        "codeclimate/php-test-reporter": "0.4.0",
+        "codeclimate/php-test-reporter": "0.4.4",
         "phpunit/phpunit": "^5.7.15",
         "refinery29/php-cs-fixer-config": "0.6.15"
     },
