@@ -19,9 +19,13 @@ class InvalidIntegerish extends AbstractDataProvider
             'array' => $faker->words,
             'boolean-false' => false,
             'boolean-true' => true,
-            'float' => $faker->randomFloat(3, 0.001),
+            'float-negative' => -1 * $faker->randomFloat(3, 0.001),
+            'float-negative-casted-to-string' => (string) (-1 * $faker->randomFloat(3, 0.001)),
+            'float-positive' => $faker->randomFloat(3, 0.001),
+            'float-positive-casted-to-string' => (string) $faker->randomFloat(3, 0.001),
             'null' => null,
             'object' => new \stdClass(),
+            'resource' => \fopen(__FILE__, 'r'),
             'string' => $faker->word,
         ];
     }

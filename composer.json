@@ -24,11 +24,11 @@
   },
   "require": {
     "php": "^5.6 || ^7.0",
+    "beberlei/assert": "^2.7.3",
     "fzaninotto/faker": "^1.5.1",
     "zendframework/zend-file": "^2.7.1"
   },
   "require-dev": {
-    "beberlei/assert": "^2.7.1",
     "codeclimate/php-test-reporter": "0.4.4",
     "phpunit/phpunit": "^5.7.15",
     "refinery29/php-cs-fixer-config": "0.6.15"
