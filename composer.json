@@ -1,49 +1,49 @@
 {
-    "name": "refinery29/test-util",
-    "description": "Provides a test helper, generic data providers, and assertions.",
-    "type": "library",
-    "keywords": [
-        "test",
-        "util",
-        "faker"
-    ],
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Andreas Möller",
-            "email": "andreas.moller@refinery29.com"
-        },
-        {
-          "name": "R29 Product & Engineering",
-          "email": "p.e@refinery29.com"
-        }
-    ],
-    "config": {
-        "preferred-install": "dist",
-        "sort-packages": true
+  "name": "refinery29/test-util",
+  "description": "Provides a test helper, generic data providers, and assertions.",
+  "type": "library",
+  "keywords": [
+    "test",
+    "util",
+    "faker"
+  ],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Andreas Möller",
+      "email": "andreas.moller@refinery29.com"
     },
-    "require": {
-        "php": "^5.6 || ^7.0",
-        "fzaninotto/faker": "^1.5.1",
-        "zendframework/zend-file": "^2.7.1"
-    },
-    "require-dev": {
-        "beberlei/assert": "^2.7.1",
-        "codeclimate/php-test-reporter": "0.4.4",
-        "phpunit/phpunit": "^5.7.15",
-        "refinery29/php-cs-fixer-config": "0.6.15"
-    },
-    "suggest": {
-        "phpunit/phpunit": "If you want to make use of the assertions provided with the TestHelper"
-    },
-    "autoload": {
-        "psr-4": {
-            "Refinery29\\Test\\Util\\": "src"
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "Refinery29\\Test\\Util\\Test\\": "test"
-        }
+    {
+      "name": "R29 Product & Engineering",
+      "email": "p.e@refinery29.com"
     }
+  ],
+  "config": {
+    "preferred-install": "dist",
+    "sort-packages": true
+  },
+  "require": {
+    "php": "^5.6 || ^7.0",
+    "fzaninotto/faker": "^1.5.1",
+    "zendframework/zend-file": "^2.7.1"
+  },
+  "require-dev": {
+    "beberlei/assert": "^2.7.1",
+    "codeclimate/php-test-reporter": "0.4.4",
+    "phpunit/phpunit": "^5.7.15",
+    "refinery29/php-cs-fixer-config": "0.6.15"
+  },
+  "suggest": {
+    "phpunit/phpunit": "If you want to make use of the assertions provided with the TestHelper"
+  },
+  "autoload": {
+    "psr-4": {
+      "Refinery29\\Test\\Util\\": "src"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Refinery29\\Test\\Util\\Test\\": "test"
+    }
+  }
 }
