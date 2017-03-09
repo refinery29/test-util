@@ -23,7 +23,7 @@ final class InvalidBooleanNotNullTest extends AbstractNotNullTestCase
      *
      * @param mixed $value
      */
-    public function testIsNotABoolean($value)
+    public function testIsNotBoolean($value)
     {
         $this->assertFalse(\is_bool($value));
     }

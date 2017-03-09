@@ -23,7 +23,7 @@ final class InvalidIntegerNotNullTest extends AbstractNotNullTestCase
      *
      * @param mixed $value
      */
-    public function testIsNotAnInteger($value)
+    public function testIsNotInteger($value)
     {
         $this->assertFalse(\is_int($value));
     }

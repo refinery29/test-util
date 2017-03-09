@@ -24,7 +24,7 @@ final class InvalidIntegerishTest extends AbstractTestCase
      *
      * @param mixed $value
      */
-    public function testIsNotAnInteger($value)
+    public function testIsNotIntegerish($value)
     {
         $this->expectException(\InvalidArgumentException::class);
 

@@ -23,7 +23,7 @@ final class BooleanTest extends AbstractTestCase
      *
      * @param bool $value
      */
-    public function testIsABoolean($value)
+    public function testIsBoolean($value)
     {
         $this->assertTrue(\is_bool($value));
     }

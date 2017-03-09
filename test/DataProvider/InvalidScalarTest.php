@@ -23,7 +23,7 @@ final class InvalidScalarTest extends AbstractTestCase
      *
      * @param mixed $value
      */
-    public function testIsNotAScalar($value)
+    public function testIsNotScalar($value)
     {
         $this->assertFalse(\is_scalar($value));
     }
