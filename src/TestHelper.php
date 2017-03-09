@@ -46,8 +46,8 @@ trait TestHelper
     final protected function provideData(array $values)
     {
         foreach ($values as $key => $value) {
-            yield [
-                $key => $value,
+            yield $key => [
+                $value,
             ];
         }
     }
