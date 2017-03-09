@@ -18,8 +18,6 @@
           "email": "p.e@refinery29.com"
         }
     ],
-    "minimum-stability": "dev",
-    "prefer-stable": true,
     "config": {
         "preferred-install": "dist",
         "sort-packages": true
