@@ -70,15 +70,9 @@ trait TestHelper
         $values = \array_reduce(
             $dataProviders,
             function (array $carry, DataProvider\DataProviderInterface $dataProvider) {
-                $values = $dataProvider->values();
-
-                if ($values instanceof \Traversable) {
-                    $values = \iterator_to_array($values);
-                }
-
                 return \array_merge(
                     $carry,
-                    $values
+                    $dataProvider->values()
                 );
             },
             []

@@ -139,7 +139,7 @@ final class TestHelperTest extends Framework\TestCase
         $this->assertGeneratorYieldsValues($values, $generator);
     }
 
-    public function testProvideDataFromYieldsValuesFromDataProviderWithArrayOfValues()
+    public function testProvideDataFromYieldsValuesFromDataProvider()
     {
         $faker = $this->getFaker();
 
@@ -148,25 +148,7 @@ final class TestHelperTest extends Framework\TestCase
             $faker->unique()->words(5)
         );
 
-        $dataProvider = new DataProviderFake($values);
-
-        $generator = $this->provideDataFrom($dataProvider);
-
-        $this->assertGeneratorYieldsValues($values, $generator);
-    }
-
-    public function testProvideDataFromYieldsValuesFromDataProviderWithTraversableYieldingValues()
-    {
-        $faker = $this->getFaker();
-
-        $values = \array_combine(
-            $faker->unique()->words(5),
-            $faker->unique()->words(5)
-        );
-
-        $dataProvider = new DataProviderFake($this->traversableFrom($values));
-
-        $generator = $this->provideDataFrom($dataProvider);
+        $generator = $this->provideDataFrom(new DataProviderFake($values));
 
         $this->assertGeneratorYieldsValues($values, $generator);
     }
@@ -186,8 +168,8 @@ final class TestHelperTest extends Framework\TestCase
         );
 
         $generator = $this->provideDataFrom(
-            new DataProviderFake($this->traversableFrom($valuesOne)),
-            new DataProviderFake($this->traversableFrom($valuesTwo))
+            new DataProviderFake($valuesOne),
+            new DataProviderFake($valuesTwo)
         );
 
         $values = \array_merge(

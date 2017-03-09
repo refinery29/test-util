@@ -12,9 +12,9 @@ namespace Refinery29\Test\Util\DataProvider;
 interface DataProviderInterface
 {
     /**
-     * This method should return an array or a Traversable.
+     * This method should return an array..
      *
-     * @return array|\Traversable
+     * @return array
      */
     public function values();
 }
