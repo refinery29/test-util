@@ -24,7 +24,7 @@ final class InvalidUuidNotNullTest extends AbstractNotNullTestCase
      *
      * @param mixed $value
      */
-    public function testIsNotAUuid($value)
+    public function testIsNotUuid($value)
     {
         $this->expectException(\InvalidArgumentException::class);
 

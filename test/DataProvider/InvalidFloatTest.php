@@ -23,7 +23,7 @@ final class InvalidFloatTest extends AbstractTestCase
      *
      * @param mixed $value
      */
-    public function testIsNotAFloat($value)
+    public function testIsNotFloat($value)
     {
         $this->assertFalse(\is_float($value));
     }

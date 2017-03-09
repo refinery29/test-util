@@ -24,7 +24,7 @@ final class InvalidUrlNotNullTest extends AbstractNotNullTestCase
      *
      * @param mixed $value
      */
-    public function testIsNotAUrl($value)
+    public function testIsNotUrl($value)
     {
         $this->expectException(\InvalidArgumentException::class);
 

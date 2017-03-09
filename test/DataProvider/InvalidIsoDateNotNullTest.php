@@ -24,7 +24,7 @@ final class InvalidIsoDateNotNullTest extends AbstractNotNullTestCase
      *
      * @param mixed $value
      */
-    public function testIsNotAnIsoDate($value)
+    public function testIsNotIsoDate($value)
     {
         $this->expectException(\InvalidArgumentException::class);
 

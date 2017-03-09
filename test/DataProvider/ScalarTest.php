@@ -23,7 +23,7 @@ final class ScalarTest extends AbstractTestCase
      *
      * @param mixed $value
      */
-    public function testIsAScalar($value)
+    public function testIsScalar($value)
     {
         $this->assertTrue(\is_scalar($value));
     }
