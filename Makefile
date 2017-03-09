@@ -5,7 +5,7 @@ it: cs test
 composer:
 	composer self-update
 	composer validate
-	composer update --prefer-dist
+	composer update
 
 coverage: composer
 	vendor/bin/phpunit --configuration phpunit.xml --coverage-text
@@ -15,5 +15,5 @@ cs: composer
 
 test: composer
 	vendor/bin/phpunit --configuration phpunit.xml
-	composer update --prefer-dist --prefer-lowest
+	composer update --prefer-lowest
 	vendor/bin/phpunit --configuration phpunit.xml

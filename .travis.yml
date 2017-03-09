@@ -35,7 +35,7 @@ before_install:
   - composer config github-oauth.github.com $GITHUB_TOKEN
 
 install:
-  - if [[ "$WITH_LOWEST" == "true" ]]; then composer update --prefer-lowest --prefer-dist; else composer update --prefer-dist; fi
+  - if [[ "$WITH_LOWEST" == "true" ]]; then composer update --prefer-lowest; else composer update; fi
 
 before_script:
   - mkdir -p "$HOME/.php-cs-fixer"
