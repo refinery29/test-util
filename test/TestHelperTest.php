@@ -641,11 +641,11 @@ final class TestHelperTest extends Framework\TestCase
     {
         $this->assertInstanceOf(\Traversable::class, $generator);
 
-        $expected = \array_map(function ($value, $key) {
+        $expected = \array_map(function ($value) {
             return [
-                $key => $value,
+                $value,
             ];
-        }, \array_values($values), \array_keys($values));
+        }, $values);
 
         $this->assertSame($expected, \iterator_to_array($generator));
     }
