@@ -26,9 +26,11 @@ If you want to make use of the test helper, import the `Refinery29\Test\Util\Tes
 ```php
 namespace Acme\Test;
 
+use PHPUnit\Framework;
 use Refinery29\Test\Util\TestHelper;
 
-final class WebsiteTest extends \PHPUnit_Framework_TestCase
+
+final class WebsiteTest extends Framework\TestCase
 {
     use TestHelper;
 }
@@ -125,10 +127,11 @@ Putting it all together, here's an example of a test making use of the test help
 namespace Acme\Test;
 
 use Acme\Website;
+use PHPUnit\Framework;
 use Refinery29\Test\Util\DataProvider;
 use Refinery29\Test\Util\TestHelper;
 
-final class WebsiteTest extends \PHPUnit_Framework_TestCase
+final class WebsiteTest extends Framework\TestCase
 {
     use TestHelper;
 

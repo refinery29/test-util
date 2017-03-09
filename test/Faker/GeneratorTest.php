@@ -10,9 +10,10 @@
 namespace Refinery29\Test\Util\Test\Faker;
 
 use Faker\Generator as OriginalGenerator;
+use PHPUnit\Framework;
 use Refinery29\Test\Util\Faker\Generator;
 
-final class GeneratorTest extends \PHPUnit_Framework_TestCase
+final class GeneratorTest extends Framework\TestCase
 {
     public function testExtendsBase()
     {
