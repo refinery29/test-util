@@ -649,16 +649,4 @@ final class TestHelperTest extends Framework\TestCase
 
         $this->assertSame($expected, \iterator_to_array($generator));
     }
-
-    /**
-     * @param array $values
-     *
-     * @return \Generator
-     */
-    private function traversableFrom(array $values)
-    {
-        foreach ($values as $key => $value) {
-            yield $key => $value;
-        }
-    }
 }
