@@ -12,7 +12,6 @@ namespace Refinery29\Test\Util\Test;
 use Faker\Generator;
 use PHPUnit\Framework;
 use Refinery29\Test\Util\Faker\Provider;
-use Refinery29\Test\Util\Test\Asset\WithExclude\ExcludeNot\Bar;
 use Refinery29\Test\Util\TestHelper;
 
 /**
