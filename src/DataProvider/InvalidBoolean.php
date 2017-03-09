@@ -13,20 +13,18 @@ class InvalidBoolean extends AbstractDataProvider
 {
     public function values()
     {
-        $faker = $this->getFaker();
-
         return [
-            'array' => $faker->words,
-            'float-negative' => -1 * $faker->randomFloat(3, 0.001),
-            'float-positive' => $faker->randomFloat(3, 0.001),
+            'array' => $this->arrayOfStrings(),
+            'float-negative' => $this->floatNegative(),
+            'float-positive' => $this->floatPositive(),
             'float-zero' => 0.0,
-            'integer-negative' => -1 * $faker->numberBetween(1),
-            'integer-positive' => $faker->numberBetween(1),
+            'integer-negative' => $this->intNegative(),
+            'integer-positive' => $this->intPositive(),
             'integer-zero' => 0,
             'null' => null,
             'object' => new \stdClass(),
-            'resource' => \fopen(__FILE__, 'r'),
-            'string' => $faker->word,
+            'resource' => $this->resource(),
+            'string' => $this->string(),
         ];
     }
 }

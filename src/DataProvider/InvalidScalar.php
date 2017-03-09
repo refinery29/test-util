@@ -13,13 +13,11 @@ class InvalidScalar extends AbstractDataProvider
 {
     public function values()
     {
-        $faker = $this->getFaker();
-
         return [
-            'array' => $faker->words,
+            'array' => $this->arrayOfStrings(),
             'null' => null,
             'object' => new \stdClass(),
-            'resource' => \fopen(__FILE__, 'r'),
+            'resource' => $this->resource(),
         ];
     }
 }

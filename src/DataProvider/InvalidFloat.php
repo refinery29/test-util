@@ -13,22 +13,20 @@ class InvalidFloat extends AbstractDataProvider
 {
     public function values()
     {
-        $faker = $this->getFaker();
-
         return [
-            'array' => $faker->words,
+            'array' => $this->arrayOfStrings(),
             'boolean-false' => false,
             'boolean-true' => true,
-            'float-negative-casted-to-string' => (string) (-1 * $faker->randomFloat(3, 0.001)),
-            'float-positive-casted-to-string' => (string) $faker->randomFloat(3, 0.001),
+            'float-negative-casted-to-string' => (string) $this->floatNegative(),
+            'float-positive-casted-to-string' => (string) $this->floatPositive(),
             'float-zero-casted-to-string' => (string) 0.0,
-            'integer-negative' => -1 * $faker->numberBetween(1),
-            'integer-positive' => $faker->numberBetween(1),
+            'integer-negative' => $this->intNegative(),
+            'integer-positive' => $this->intPositive(),
             'integer-zero' => 0,
             'null' => null,
             'object' => new \stdClass(),
-            'resource' => \fopen(__FILE__, 'r'),
-            'string' => $faker->word,
+            'resource' => $this->resource(),
+            'string' => $this->string(),
         ];
     }
 }

@@ -13,16 +13,14 @@ class InvalidString extends AbstractDataProvider
 {
     public function values()
     {
-        $faker = $this->getFaker();
-
         return [
-            'array' => $faker->words,
+            'array' => $this->arrayOfStrings(),
             'boolean-false' => false,
             'boolean-true' => true,
-            'float' => $faker->randomFloat(3, 0.001),
-            'integer' => $faker->numberBetween(1),
+            'float' => $this->floatPositive(),
+            'integer' => $this->intPositive(),
             'null' => null,
-            'resource' => \fopen(__FILE__, 'r'),
+            'resource' => $this->resource(),
             'object' => new \stdClass(),
         ];
     }
