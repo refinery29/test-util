@@ -9,7 +9,7 @@
 
 namespace Refinery29\Test\Util\Test\DataProvider;
 
-use Assert;
+use Assert\Assert;
 use Refinery29\Test\Util\DataProvider\InvalidUrl;
 
 final class InvalidUrlTest extends AbstractTestCase
@@ -28,6 +28,6 @@ final class InvalidUrlTest extends AbstractTestCase
     {
         $this->expectException(\InvalidArgumentException::class);
 
-        Assert\that($value)->url();
+        Assert::that($value)->url();
     }
 }

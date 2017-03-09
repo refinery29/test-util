@@ -9,7 +9,7 @@
 
 namespace Refinery29\Test\Util\Test\DataProvider;
 
-use Assert;
+use Assert\Assert;
 use Refinery29\Test\Util\DataProvider\InvalidUuid;
 
 final class InvalidUuidTest extends AbstractTestCase
@@ -28,6 +28,8 @@ final class InvalidUuidTest extends AbstractTestCase
     {
         $this->expectException(\InvalidArgumentException::class);
 
-        Assert\that($value)->string()->uuid();
+        Assert::that($value)
+            ->string()
+            ->uuid();
     }
 }

@@ -9,7 +9,7 @@
 
 namespace Refinery29\Test\Util\Test\DataProvider;
 
-use Assert;
+use Assert\Assert;
 use Refinery29\Test\Util\DataProvider\InvalidIsoDateNotNull;
 
 final class InvalidIsoDateNotNullTest extends AbstractNotNullTestCase
@@ -28,6 +28,8 @@ final class InvalidIsoDateNotNullTest extends AbstractNotNullTestCase
     {
         $this->expectException(\InvalidArgumentException::class);
 
-        Assert\that($value)->string()->date(DATE_ATOM);
+        Assert::that($value)
+            ->string()
+            ->date(DATE_ATOM);
     }
 }
