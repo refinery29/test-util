@@ -9,10 +9,11 @@
 
 namespace Refinery29\Test\Util\Test\DataProvider;
 
+use PHPUnit\Framework;
 use Refinery29\Test\Util\DataProvider\DataProviderInterface;
 use Refinery29\Test\Util\TestHelper;
 
-abstract class AbstractTestCase extends \PHPUnit_Framework_TestCase
+abstract class AbstractTestCase extends Framework\TestCase
 {
     use TestHelper;
 

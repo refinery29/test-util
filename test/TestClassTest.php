@@ -9,9 +9,10 @@
 
 namespace Refinery29\Test\Util\Test;
 
+use PHPUnit\Framework;
 use Refinery29\Test\Util\TestHelper;
 
-final class TestClassTest extends \PHPUnit_Framework_TestCase
+final class TestClassTest extends Framework\TestCase
 {
     use TestHelper;
 
