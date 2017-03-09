@@ -19,14 +19,14 @@ class Truthy extends AbstractDataProvider
         $faker = $this->getFaker();
 
         return [
+            'array-not-empty' => $faker->words(),
             'boolean-true' => true,
-            'non-empty-string' => $faker->word,
-            'non-empty-array' => $faker->words(),
-            'float-positive' => $faker->randomFloat(3, 0.001),
             'float-negative' => -1 * $faker->randomFloat(3, 0.001),
-            'integer-positive' => $faker->numberBetween(1),
+            'float-positive' => $faker->randomFloat(3, 0.001),
             'integer-negative' => -1 * $faker->numberBetween(1),
+            'integer-positive' => $faker->numberBetween(1),
             'object' => new \stdClass(),
+            'string-not-empty' => $faker->word,
         ];
     }
 }

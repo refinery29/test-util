@@ -17,13 +17,13 @@ class Falsy extends AbstractDataProvider
     public function values()
     {
         return [
+            'array-empty' => [],
             'boolean-false' => false,
-            'empty-string' => '',
-            'string-containing-zero' => '0',
-            'empty-array' => [],
             'float-zero' => 0.0,
             'integer-zero' => 0,
             'null' => null,
+            'string-containing-zero' => '0',
+            'string-empty' => '',
         ];
     }
 }

@@ -16,12 +16,12 @@ class InvalidString extends AbstractDataProvider
         $faker = $this->getFaker();
 
         return [
-            'null' => null,
-            'boolean-true' => true,
+            'array' => $faker->words,
             'boolean-false' => false,
+            'boolean-true' => true,
             'float' => $faker->randomFloat(3, 0.001),
             'integer' => $faker->numberBetween(1),
-            'array' => $faker->words,
+            'null' => null,
             'object' => new \stdClass(),
         ];
     }
