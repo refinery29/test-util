@@ -19,13 +19,13 @@ class InvalidIsoDate extends InvalidString
 
         return \array_merge(parent::values(), [
             'string' => $faker->word,
-            DATE_ISO8601 => $date->format(DATE_ISO8601),
             DATE_COOKIE => $date->format(DATE_COOKIE),
-            DATE_RFC822 => $date->format(DATE_RFC822),
-            DATE_RFC850 => $date->format(DATE_RFC850),
+            DATE_ISO8601 => $date->format(DATE_ISO8601),
             DATE_RFC1036 => $date->format(DATE_RFC1036),
             DATE_RFC1123 => $date->format(DATE_RFC1123),
             DATE_RFC2822 => $date->format(DATE_RFC2822),
+            DATE_RFC822 => $date->format(DATE_RFC822),
+            DATE_RFC850 => $date->format(DATE_RFC850),
             DATE_RSS => $date->format(DATE_RSS),
         ]);
     }

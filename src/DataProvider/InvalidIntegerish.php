@@ -16,13 +16,13 @@ class InvalidIntegerish extends AbstractDataProvider
         $faker = $this->getFaker();
 
         return [
-            'null' => null,
-            'boolean-true' => true,
-            'boolean-false' => false,
-            'float' => $faker->randomFloat(3, 0.001),
-            'string' => $faker->word,
             'array' => $faker->words,
+            'boolean-false' => false,
+            'boolean-true' => true,
+            'float' => $faker->randomFloat(3, 0.001),
+            'null' => null,
             'object' => new \stdClass(),
+            'string' => $faker->word,
         ];
     }
 }

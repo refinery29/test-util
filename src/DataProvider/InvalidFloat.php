@@ -16,14 +16,14 @@ class InvalidFloat extends AbstractDataProvider
         $faker = $this->getFaker();
 
         return [
-            'null' => null,
-            'boolean-true' => true,
-            'boolean-false' => false,
-            'integer' => $faker->numberBetween(1),
-            'float-casted-to-string' => (string) $faker->randomFloat(3, 0.001),
-            'string' => $faker->word,
             'array' => $faker->words,
+            'boolean-false' => false,
+            'boolean-true' => true,
+            'float-casted-to-string' => (string) $faker->randomFloat(3, 0.001),
+            'integer' => $faker->numberBetween(1),
+            'null' => null,
             'object' => new \stdClass(),
+            'string' => $faker->word,
         ];
     }
 }

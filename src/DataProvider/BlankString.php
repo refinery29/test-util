@@ -15,8 +15,8 @@ class BlankString extends AbstractDataProvider
     {
         return [
             'empty-string' => '',
-            'string-with-spaces-only' => ' ',
             'string-with-line-feed-only' => "\n",
+            'string-with-spaces-only' => ' ',
             'string-with-tab-only' => "\t",
         ];
     }

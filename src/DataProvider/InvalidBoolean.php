@@ -16,12 +16,12 @@ class InvalidBoolean extends AbstractDataProvider
         $faker = $this->getFaker();
 
         return [
-            'null' => null,
+            'array' => $faker->words,
             'float' => $faker->randomFloat(3, 0.001),
             'integer' => $faker->numberBetween(1),
-            'string' => $faker->word,
-            'array' => $faker->words,
+            'null' => null,
             'object' => new \stdClass(),
+            'string' => $faker->word,
         ];
     }
 }

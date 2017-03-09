@@ -16,14 +16,14 @@ class InvalidInteger extends AbstractDataProvider
         $faker = $this->getFaker();
 
         return [
-            'null' => null,
-            'boolean-true' => true,
+            'array' => $faker->words,
             'boolean-false' => false,
+            'boolean-true' => true,
             'float' => $faker->randomFloat(3, 0.001),
             'integer-casted-to-string' => (string) $faker->numberBetween(1),
-            'string' => $faker->word,
-            'array' => $faker->words,
+            'null' => null,
             'object' => new \stdClass(),
+            'string' => $faker->word,
         ];
     }
 }
