@@ -18,7 +18,7 @@ class Scalar extends AbstractDataProvider
         return [
             'boolean-true' => true,
             'boolean-false' => false,
-            'float' => $faker->randomFloat(3),
+            'float' => $faker->randomFloat(3, 0.001),
             'integer' => $faker->randomNumber(),
             'string' => $faker->word,
         ];
