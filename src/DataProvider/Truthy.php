@@ -16,17 +16,15 @@ class Truthy extends AbstractDataProvider
 {
     public function values()
     {
-        $faker = $this->getFaker();
-
         return [
-            'array-not-empty' => $faker->words(),
+            'array-not-empty' => $this->arrayOfStrings(),
             'boolean-true' => true,
-            'float-negative' => -1 * $faker->randomFloat(3, 0.001),
-            'float-positive' => $faker->randomFloat(3, 0.001),
-            'integer-negative' => -1 * $faker->numberBetween(1),
-            'integer-positive' => $faker->numberBetween(1),
+            'float-negative' => $this->floatNegative(),
+            'float-positive' => $this->floatPositive(),
+            'integer-negative' => $this->intNegative(),
+            'integer-positive' => $this->intPositive(),
             'object' => new \stdClass(),
-            'string-not-empty' => $faker->word,
+            'string-not-empty' => $this->string(),
         ];
     }
 }

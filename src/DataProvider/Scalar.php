@@ -13,18 +13,16 @@ class Scalar extends AbstractDataProvider
 {
     public function values()
     {
-        $faker = $this->getFaker();
-
         return [
             'boolean-false' => false,
             'boolean-true' => true,
-            'float-negative' => -1 * $faker->randomFloat(3, 0.001),
-            'float-positive' => $faker->randomFloat(3, 0.001),
+            'float-negative' => $this->floatNegative(),
+            'float-positive' => $this->floatPositive(),
             'float-zero' => 0.0,
-            'integer-negative' => -1 * $faker->numberBetween(1),
-            'integer-positive' => $faker->numberBetween(1),
+            'integer-negative' => $this->intNegative(),
+            'integer-positive' => $this->intPositive(),
             'integer-zero' => 0,
-            'string' => $faker->word,
+            'string' => $this->string(),
         ];
     }
 }

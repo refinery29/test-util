@@ -13,16 +13,14 @@ class InvalidNumeric extends AbstractDataProvider
 {
     public function values()
     {
-        $faker = $this->getFaker();
-
         return [
-            'array' => $faker->words,
+            'array' => $this->arrayOfStrings(),
             'boolean-false' => false,
             'boolean-true' => true,
             'null' => null,
             'object' => new \stdClass(),
-            'resource' => \fopen(__FILE__, 'r'),
-            'string' => $faker->word,
+            'resource' => $this->resource(),
+            'string' => $this->string(),
         ];
     }
 }

@@ -19,4 +19,74 @@ abstract class AbstractDataProvider implements DataProviderInterface
     {
         return $this->provideData($this->values());
     }
+
+    /**
+     * @return string[]
+     */
+    final protected function arrayOfStrings()
+    {
+        return $this->getFaker()->words;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    final protected function dateTime()
+    {
+        return $this->getFaker()->dateTime;
+    }
+
+    /**
+     * @return float
+     */
+    final protected function floatNegative()
+    {
+        return -1 * $this->floatPositive();
+    }
+
+    /**
+     * @return float
+     */
+    final protected function floatPositive()
+    {
+        return $this->getFaker()->randomFloat(3, 0.001);
+    }
+
+    /**
+     * @return int
+     */
+    final protected function intNegative()
+    {
+        return -1 * $this->intPositive();
+    }
+
+    /**
+     * @return int
+     */
+    final protected function intPositive()
+    {
+        return $this->getFaker()->numberBetween(1);
+    }
+
+    /**
+     * @return resource
+     */
+    final protected function resource()
+    {
+        static $resource;
+
+        if (null === $resource) {
+            $resource = \fopen(__FILE__, 'r');
+        }
+
+        return $resource;
+    }
+
+    /**
+     * @return string
+     */
+    final protected function string()
+    {
+        return $this->getFaker()->word;
+    }
 }

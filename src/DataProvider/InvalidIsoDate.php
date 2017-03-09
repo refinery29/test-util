@@ -13,12 +13,10 @@ class InvalidIsoDate extends InvalidString
 {
     public function values()
     {
-        $faker = $this->getFaker();
-
-        $date = $faker->dateTime;
+        $date = $this->dateTime();
 
         return \array_merge(parent::values(), [
-            'string' => $faker->word,
+            'string' => $this->string(),
             DATE_COOKIE => $date->format(DATE_COOKIE),
             DATE_ISO8601 => $date->format(DATE_ISO8601),
             DATE_RFC1036 => $date->format(DATE_RFC1036),

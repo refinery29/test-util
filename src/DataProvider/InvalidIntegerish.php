@@ -13,20 +13,18 @@ class InvalidIntegerish extends AbstractDataProvider
 {
     public function values()
     {
-        $faker = $this->getFaker();
-
         return [
-            'array' => $faker->words,
+            'array' => $this->arrayOfStrings(),
             'boolean-false' => false,
             'boolean-true' => true,
-            'float-negative' => -1 * $faker->randomFloat(3, 0.001),
-            'float-negative-casted-to-string' => (string) (-1 * $faker->randomFloat(3, 0.001)),
-            'float-positive' => $faker->randomFloat(3, 0.001),
-            'float-positive-casted-to-string' => (string) $faker->randomFloat(3, 0.001),
+            'float-negative' => $this->floatNegative(),
+            'float-negative-casted-to-string' => (string) $this->floatNegative(),
+            'float-positive' => $this->floatPositive(),
+            'float-positive-casted-to-string' => (string) $this->floatPositive(),
             'null' => null,
             'object' => new \stdClass(),
-            'resource' => \fopen(__FILE__, 'r'),
-            'string' => $faker->word,
+            'resource' => $this->resource(),
+            'string' => $this->string(),
         ];
     }
 }
