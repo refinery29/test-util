@@ -13,9 +13,12 @@ use Refinery29\Test\Util\DataProvider\DataProviderInterface;
 
 final class DataProviderFake implements DataProviderInterface
 {
+    /**
+     * @var array
+     */
     private $values;
 
-    public function __construct($values)
+    public function __construct(array $values)
     {
         $this->values = $values;
     }
