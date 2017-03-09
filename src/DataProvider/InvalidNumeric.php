@@ -21,6 +21,7 @@ class InvalidNumeric extends AbstractDataProvider
             'boolean-true' => true,
             'null' => null,
             'object' => new \stdClass(),
+            'resource' => \fopen(__FILE__, 'r'),
             'string' => $faker->word,
         ];
     }

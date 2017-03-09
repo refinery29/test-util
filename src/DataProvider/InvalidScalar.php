@@ -19,6 +19,7 @@ class InvalidScalar extends AbstractDataProvider
             'array' => $faker->words,
             'null' => null,
             'object' => new \stdClass(),
+            'resource' => \fopen(__FILE__, 'r'),
         ];
     }
 }

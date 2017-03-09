@@ -22,6 +22,7 @@ class InvalidString extends AbstractDataProvider
             'float' => $faker->randomFloat(3, 0.001),
             'integer' => $faker->numberBetween(1),
             'null' => null,
+            'resource' => \fopen(__FILE__, 'r'),
             'object' => new \stdClass(),
         ];
     }
