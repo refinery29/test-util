@@ -20,7 +20,7 @@ class InvalidFloat extends AbstractDataProvider
             'boolean-true' => true,
             'boolean-false' => false,
             'integer' => $faker->randomNumber(),
-            'float-casted-to-string' => (string) $faker->randomFloat(3),
+            'float-casted-to-string' => (string) $faker->randomFloat(3, 0.001),
             'string' => $faker->word,
             'array' => $faker->words,
             'object' => new \stdClass(),

@@ -17,7 +17,7 @@ class InvalidBoolean extends AbstractDataProvider
 
         return [
             'null' => null,
-            'float' => $faker->randomFloat(3),
+            'float' => $faker->randomFloat(3, 0.001),
             'integer' => $faker->randomNumber(),
             'string' => $faker->word,
             'array' => $faker->words,
