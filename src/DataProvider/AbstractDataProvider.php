@@ -45,11 +45,18 @@ abstract class AbstractDataProvider implements DataProviderInterface
     }
 
     /**
+     * @see https://github.com/fzaninotto/Faker/blob/v1.6.0/src/Faker/Provider/Base.php#L124-L138
+     * @see https://en.wikipedia.org/wiki/2147483647_(number)
+     *
      * @return float
      */
     final protected function floatPositive()
     {
-        return $this->getFaker()->randomFloat(3, 0.001);
+        return $this->getFaker()->randomFloat(
+            null,
+            1,
+            2147483647
+        );
     }
 
     /**
