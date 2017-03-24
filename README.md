@@ -97,6 +97,7 @@ of the data providers:
 * `Refinery29\Test\Util\DataProvider\InvalidIntegerishNotNull`
 * `Refinery29\Test\Util\DataProvider\InvalidIsoDate`
 * `Refinery29\Test\Util\DataProvider\InvalidIsoDateNotNull`
+* `Refinery29\Test\Util\DataProvider\InvalidJsonString`
 * `Refinery29\Test\Util\DataProvider\InvalidNumeric`
 * `Refinery29\Test\Util\DataProvider\InvalidNumericNotNull`
 * `Refinery29\Test\Util\DataProvider\InvalidScalar`
