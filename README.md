@@ -112,6 +112,7 @@ of the data providers:
 If you need generic values, you can use one of the data providers
 
 * `Refinery29\Test\Util\DataProvider\Boolean`
+* `Refinery29\Test\Util\DataProvider\EmptyValue`
 * `Refinery29\Test\Util\DataProvider\Falsy`
 * `Refinery29\Test\Util\DataProvider\Scalar`
 * `Refinery29\Test\Util\DataProvider\Truthy`
