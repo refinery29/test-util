@@ -193,6 +193,8 @@ trait TestHelper
             ));
         }
 
+        $path = \realpath($path);
+
         \array_walk($excludeDirectories, function ($excludeDirectory) use ($path) {
             if (!\is_string($excludeDirectory)) {
                 throw new \InvalidArgumentException(\sprintf(
