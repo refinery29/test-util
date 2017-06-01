@@ -81,6 +81,12 @@ Quickly provide data from multiple concrete data providers using
 
 * `provideDataFrom(...$dataProviders) : \Generator`
 
+#### Providing combination of data from multiple concrete data providers
+
+Quickly combine data from multiple concrete data providers using
+
+* `provideCombinedDataFrom(...$dataProviders) : array`
+
 ### Data Providers
 
 If you need to assert that invalid values are rejected, you can use one
