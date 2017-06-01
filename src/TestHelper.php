@@ -57,16 +57,8 @@ trait TestHelper
      *
      * @return \Generator
      */
-    final protected function provideDataFrom(...$dataProviders)
+    final protected function provideDataFrom(DataProvider\DataProviderInterface ...$dataProviders)
     {
-        /*
-         * This works around @link https://github.com/facebook/hhvm/issues/6954, otherwise we would just type-hint in
-         * the method signature above.
-         */
-        $dataProviders = \array_map(function (DataProvider\DataProviderInterface $dataProvider) {
-            return $dataProvider;
-        }, $dataProviders);
-
         $values = \array_reduce(
             $dataProviders,
             function (array $carry, DataProvider\DataProviderInterface $dataProvider) {
