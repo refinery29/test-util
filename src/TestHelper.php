@@ -74,6 +74,34 @@ trait TestHelper
     }
 
     /**
+     * @param DataProvider\DataProviderInterface[] ...$dataProviders
+     *
+     * @return array
+     */
+    final protected function provideCombinedDataFrom(DataProvider\DataProviderInterface ...$dataProviders)
+    {
+        /**
+         * @link https://stackoverflow.com/a/15973172
+         */
+        $values = [[]];
+
+        foreach ($dataProviders as $key => $provider) {
+            $append = [];
+
+            foreach ($values as $product) {
+                foreach ($provider->values() as $item) {
+                    $product[$key] = $item;
+                    $append[] = $product;
+                }
+            }
+
+            $values = $append;
+        }
+
+        return $values;
+    }
+
+    /**
      * @param string $className
      */
     final protected function assertFinal($className)

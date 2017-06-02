@@ -180,6 +180,71 @@ final class TestHelperTest extends Framework\TestCase
         $this->assertGeneratorYieldsValues($values, $generator);
     }
 
+    public function testProvideCombinedDataFromYieldsValuesFromDataProvider()
+    {
+        $faker = $this->getFaker();
+
+        $values = $faker->unique()->words(5);
+
+        $expected = \array_map(function ($value) {
+            return [
+                $value,
+            ];
+        }, $values);
+
+        $result = $this->provideCombinedDataFrom(new DataProviderFake($values));
+
+        $this->assertSame($expected, $result);
+    }
+
+    public function testProvideCombinedDataFromYieldsCombinedValuesFromMultipleDataProviders()
+    {
+        $valuesOne = [
+            1,
+            2,
+            3,
+        ];
+
+        $valuesTwo = [
+            'a',
+            'b',
+        ];
+
+        $expected = [
+            [
+                1,
+                'a',
+            ],
+            [
+                1,
+                'b',
+            ],
+            [
+                2,
+                'a',
+            ],
+            [
+                2,
+                'b',
+            ],
+            [
+                3,
+                'a',
+            ],
+            [
+                3,
+                'b',
+            ],
+        ];
+
+        $result = $this->provideCombinedDataFrom(
+            new DataProviderFake($valuesOne),
+            new DataProviderFake($valuesTwo)
+        );
+
+        $this->assertEquals($expected, $result);
+    }
+
     public function testAssertFinalFailsWhenClassDoesNotExist()
     {
         $this->expectException(\PHPUnit_Framework_AssertionFailedError::class);
